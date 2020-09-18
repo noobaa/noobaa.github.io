@@ -27,9 +27,10 @@ NooBaa simplifies data for admins by connecting to any of the storage silos from
 
 ## Documentation
 
-- [Website](https://www.noobaa.io)
-- [Knowledge Base](https://noobaa.desk.com) - articles for specific user tasks
-- [Wiki](https://github.com/noobaa/noobaa-core/wiki) - articles for hackers
+- [NooBaa CRD](noobaa-crd.md) - The basic CRD to deploy a NooBaa system.
+- [BackingStore CRD](noobaa-backing-store.md) - Connection to cloud or local storage to use in policies.
+- [BucketClass CRD](noobaa-bucket-class.md)  - Policies applied to a class of buckets.
+- [OBC Provisioner](noobaa-obc.md) - Method to claim a new/existing bucket.
 
 ## Community
 
