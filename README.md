@@ -15,9 +15,9 @@ NooBaa simplifies data for admins by connecting to any of the storage silos from
 - [noobaa cli]() 
 - [$ noobaa install]()
 - [$ noobaa install video tutorial](https://www.youtube.com/watch?v=QXr2pSL3AVY)
+- [$ noobaa status]()
 
 [![YOUTUBE](https://img.youtube.com/vi/QXr2pSL3AVY/0.jpg)](https://www.youtube.com/watch?v=QXr2pSL3AVY)
-- [$ noobaa status]()
 
 ## User guides
 
