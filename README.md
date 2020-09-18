@@ -15,7 +15,6 @@ NooBaa simplifies data for admins by connecting to any of the storage silos from
 - [noobaa cli](noobaa-cli.md) 
 - [noobaa install](noobaa-install.md)
 - [noobaa status](noobaa-status.md)
-- [noobaa verify](noobaa-verify.md)
 
 ## User guides
 
