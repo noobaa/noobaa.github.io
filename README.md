@@ -1,5 +1,6 @@
 <div id="top" />
-<img src="noobaa_logo.png" width="200" />
+<link rel="shortcut icon" type="image/x-icon" href="noobaa_icon.png">
+<img src="noobaa_logo_negative.png" width="200" />
 
 ----
 NooBaa is a software defined data gateway for cloud environments, providing S3 object-store interface with data services such as namespace caching, merging and  tiering, mirroring, and spread placement policies, over any storage resource that allows GET/PUT including S3, GCS, Azure Blob, Filesystems, etc.
