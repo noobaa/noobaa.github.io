@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- [noobaa cli](noobaa-cli.md) should be installed
+- [noobaa cli](noobaa-cli.md) - should be installed
 - Setup kubeconfig connecting you to a Kubernetes cluster or minikube.
 
 ## Install to Kubernetes
@@ -160,5 +160,4 @@ noobaa install
 ## Next steps
 
 - [noobaa status](noobaa-status.md)
-- [noobaa verify](noobaa-verify.md)
 - [Back](README.md)
