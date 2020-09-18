@@ -10,31 +10,32 @@ NooBaa simplifies data for admins by connecting to any of the storage silos from
 
 ----
 
-## Getting started
+## User Guide
 
-- [noobaa cli](noobaa-cli.md) 
+- [noobaa CLI](noobaa-cli.md) 
 - [noobaa install](noobaa-install.md)
 - [noobaa status](noobaa-status.md)
-
-## User guides
-
-- [Getting help]()
-- [Setup backing stores]()
-- [Setup bucket classes]()
-- [Setup routes, SSL, certificates, etc]()
-- [Running on minikube]()
+- [Setup default backing store](noobaa-default-backing-store.md)
+- [Connect applications with ObjectBucketClaims](noobaa-obc.md)
+- [Connect applications with COSI (pre-alpha)](noobaa-cosi.md)
 
 ## Documentation
 
+- [S3 compatibility](noobaa-s3-compat.md)
+- [Setup routes, SSL, certificates, etc]()
+- [Running on minikube]()
 - [NooBaa CRD](noobaa-crd.md) - The basic CRD to deploy a NooBaa system.
 - [BackingStore CRD](noobaa-backing-store.md) - Connection to cloud or local storage to use in policies.
 - [BucketClass CRD](noobaa-bucket-class.md)  - Policies applied to a class of buckets.
-- [OBC Provisioner](noobaa-obc.md) - Method to claim a new/existing bucket.
+- [Youtube presentations]()
+- [Youtube Demos]()
 
 ## Community
 
+- [Getting help]()
 - [Email group noobaa@googlegroups.com](https://groups.google.com/g/noobaa)
 - [Slack channel](https://www.noobaa.io/community)
+- [Youtube community meeting recordings]()
 
 ## Developers
 
