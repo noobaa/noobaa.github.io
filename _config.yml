@@ -1,1 +1,3 @@
 theme: jekyll-theme-hacker
+title: NooBaa
+description: NooBaa is a highly customizable and dynamic data gateway for Kubernetes (S3-compatible)
