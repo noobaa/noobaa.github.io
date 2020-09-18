@@ -1,37 +1,56 @@
-## Welcome to GitHub Pages
+<div id="top" />
+<img src="/images/noobaa_logo.png" width="200" />
 
-You can use the [editor on GitHub](https://github.com/noobaa/noobaa.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+----
+NooBaa is a software defined data gateway for cloud environments, providing S3 object-store interface with data services such as namespace caching, merging and  tiering, mirroring, and spread placement policies, over any storage resource that allows GET/PUT including S3, GCS, Azure Blob, Filesystems, etc.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+NooBaa simplifies data for admins by connecting to any of the storage silos from private or public clouds, and providing a single scalable data service, using the same S3 API and management tools. NooBaa allows full control over data placement, letting you place data based on security, strategy and cost considerations, in the granularity of an application.
 
-### Markdown
+----
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Deploy to Kubernetes
 
-```markdown
-Syntax highlighted code block
+To deploy NooBaa, we recommend using NooBaa CLI. 
+Follow the instructions in https://github.com/noobaa/noobaa-operator#noobaa-operator 
 
-# Header 1
-## Header 2
-### Header 3
+Once NooBaa CLI installed, simply Install the operator and noobaa with: 
+```
+./noobaa install
+```
+The install output includes S3 service endpoint and credentials, as well as web management console address with credentials.
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+Getting this information is always available with: 
+```
+./noobaa status
+```
+Remove NooBaa deployment can be done with: 
+```
+./noobaa uninstall
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Tutorial
 
-### Jekyll Themes
+[![YOUTUBE](https://img.youtube.com/vi/QXr2pSL3AVY/0.jpg)](https://www.youtube.com/watch?v=QXr2pSL3AVY)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/noobaa/noobaa.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+(Click the image or the link to open the [noobaa install demo on YouTube](https://www.youtube.com/watch?v=QXr2pSL3AVY))
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Help
+
+- [Website](https://www.noobaa.io)
+- [Knowledge Base](https://noobaa.desk.com) - articles for specific user tasks
+- [Wiki](https://github.com/noobaa/noobaa-core/wiki) - articles for hackers
+
+## Communicate
+
+- support@noobaa.com
+- [Subscribe to newsletter](https://www.noobaa.io/community)
+
+## Contribute
+
+- [How to Contribute](/CONTRIBUTING.md)  
+- [Developers Guide](https://github.com/noobaa/noobaa-core/wiki/Developers-Guide) 
+
+## License
+
+Apache License 2.0, see [LICENSE](/LICENSE)
