@@ -160,5 +160,5 @@ noobaa install
 ## Next steps
 
 - [noobaa status](noobaa-status.md)
-- [Verify your setup](verify-your-setup.md)
+- [noobaa verify](noobaa-verify.md)
 - [Back](README.md)
