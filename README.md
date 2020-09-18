@@ -3,40 +3,51 @@
 <img src="noobaa_logo.png" width="200" />
 
 ----
-NooBaa is a software defined data gateway for cloud environments, providing S3 object-store interface with data services such as namespace caching, merging and  tiering, mirroring, and spread placement policies, over any storage resource that allows GET/PUT including S3, GCS, Azure Blob, Filesystems, etc.
+
+NooBaa is a highly customizable and dynamic data gateway for Kubernetes (S3-compatible). 
+
+Providing data services such as namespace caching, merging and  tiering, mirroring, and spread placement policies, over any storage resource that allows GET/PUT including S3, GCS, Azure Blob, Filesystems, etc.
 
 NooBaa simplifies data for admins by connecting to any of the storage silos from private or public clouds, and providing a single scalable data service, using the same S3 API and management tools. NooBaa allows full control over data placement, letting you place data based on security, strategy and cost considerations, in the granularity of an application.
 
 ----
 
+
 ## Deploy to Kubernetes
 
-To deploy NooBaa, we recommend using NooBaa CLI. 
-Follow the instructions in https://github.com/noobaa/noobaa-operator#noobaa-operator 
+To deploy NooBaa, we recommend using NooBaa CLI - follow the instructions:
+
+https://github.com/noobaa/noobaa-operator#noobaa-operator 
 
 Once NooBaa CLI installed, simply Install the operator and noobaa with: 
 ```
-./noobaa install
+noobaa install
 ```
 The install output includes S3 service endpoint and credentials, as well as web management console address with credentials.
 
 Getting this information is always available with: 
 ```
-./noobaa status
-```
-Remove NooBaa deployment can be done with: 
-```
-./noobaa uninstall
+noobaa status
 ```
 
-## Tutorial
+Remove NooBaa deployment can be done with: 
+```
+noobaa uninstall
+```
+
+For more actions use:
+```
+noobaa help
+```
+
+## Video Tutorial
+
+(Click the image or the link to open the [noobaa install on YouTube](https://www.youtube.com/watch?v=QXr2pSL3AVY))
 
 [![YOUTUBE](https://img.youtube.com/vi/QXr2pSL3AVY/0.jpg)](https://www.youtube.com/watch?v=QXr2pSL3AVY)
 
-(Click the image or the link to open the [noobaa install demo on YouTube](https://www.youtube.com/watch?v=QXr2pSL3AVY))
 
-
-## Help
+## Documentation
 
 - [Website](https://www.noobaa.io)
 - [Knowledge Base](https://noobaa.desk.com) - articles for specific user tasks
