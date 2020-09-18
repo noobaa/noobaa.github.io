@@ -12,40 +12,21 @@ NooBaa simplifies data for admins by connecting to any of the storage silos from
 
 ----
 
+## Getting started
 
-## Deploy to Kubernetes
+- [noobaa cli]() 
+- [$ noobaa install]()
+- [$ noobaa install video tutorial](https://www.youtube.com/watch?v=QXr2pSL3AVY)
+    [![YOUTUBE](https://img.youtube.com/vi/QXr2pSL3AVY/0.jpg)](https://www.youtube.com/watch?v=QXr2pSL3AVY)
+- [$ noobaa status]()
 
-To deploy NooBaa, we recommend using NooBaa CLI - follow the instructions:
+## User guides
 
-https://github.com/noobaa/noobaa-operator#noobaa-operator 
-
-Once NooBaa CLI installed, simply Install the operator and noobaa with: 
-```
-noobaa install
-```
-The install output includes S3 service endpoint and credentials, as well as web management console address with credentials.
-
-Getting this information is always available with: 
-```
-noobaa status
-```
-
-Remove NooBaa deployment can be done with: 
-```
-noobaa uninstall
-```
-
-For more actions use:
-```
-noobaa help
-```
-
-## Video Tutorial
-
-(Click the image or the link to open the [noobaa install on YouTube](https://www.youtube.com/watch?v=QXr2pSL3AVY))
-
-[![YOUTUBE](https://img.youtube.com/vi/QXr2pSL3AVY/0.jpg)](https://www.youtube.com/watch?v=QXr2pSL3AVY)
-
+- [Getting help]()
+- [Setup backing stores]()
+- [Setup bucket classes]()
+- [Setup routes, SSL, certificates, etc]()
+- [Running on minikube]()
 
 ## Documentation
 
@@ -53,12 +34,12 @@ noobaa help
 - [Knowledge Base](https://noobaa.desk.com) - articles for specific user tasks
 - [Wiki](https://github.com/noobaa/noobaa-core/wiki) - articles for hackers
 
-## Communicate
+## Community
 
-- support@noobaa.com
-- [Subscribe to newsletter](https://www.noobaa.io/community)
+- [Email group noobaa@googlegroups.com](https://groups.google.com/g/noobaa)
+- [Slack channel](https://www.noobaa.io/community)
 
-## Contribute
+## Developers
 
 - [How to Contribute](/CONTRIBUTING.md)  
 - [Developers Guide](https://github.com/noobaa/noobaa-core/wiki/Developers-Guide) 
