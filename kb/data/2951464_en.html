@@ -1,0 +1,33 @@
+<div>NooBaa performance may vary from one environment to another.&nbsp;<br />
+In some cases, specific applications require faster performance which can be easily addressed by scaling S3 endpoints.&nbsp;<br />
+<br />
+The S3 endpoint is a service that every NooBaa core provides by default, and it handles all the heavy lifting data digestion in NooBaa. The endpoint service handles the data chunking, deduplication, compression, and encryption and accept data placement instructions from NooBaa core.&nbsp;<br />
+<br />
+NooBaa daemon can provide two type of services:</div>
+
+<ul>
+	<li>Storage service - enabled by default</li>
+	<li>S3 endpoint service - disabled by default.&nbsp;</li>
+</ul>
+
+<div>Deploying S3 endpoint actually consists of:</div>
+
+<ol>
+	<li>Deploying NooBaa daemon as close as possible to the application</li>
+	<li>Enable S3 endpoint&nbsp;</li>
+	<li>Open the firewall&nbsp;for inbound TCP ports 80 and 443.&nbsp;</li>
+</ol>
+
+<div>NooBaa daemon can be deployed on any&nbsp;Linux or Windows server with more than 15GB free storage, and can be done from the main screen, by clicking on the<a href="https://noobaa.desk.com/customer/en/portal/articles/2852040-install-nodes-?t=775839">&nbsp;</a><strong><a href="https://noobaa.desk.com/customer/en/portal/articles/2852040-install-nodes-?t=775839">Install Nodes&nbsp;</a>button</strong></div>
+Follow the wizard instructions, copy the one-liner and run it on the server.<br />
+<br />
+<img alt="install nodes" src="images/2951464_en/801150" /><br />
+<br />
+<br />
+If you didn&#39;t connect your application already, let&#39;s move to the next step -&nbsp;<a href="https://noobaa.desk.com/customer/portal/articles/2852068-second-step-connect-an-application-">Connect your application</a><br />
+<br />
+Please note that you can use the&nbsp;server IP address as the endpoint, using the same access key and secret key.&nbsp;<br />
+<br />
+Have questions? please email&nbsp;<a href="mailto:support@noobaa.com?subject=Need%20help%20with%20NooBaa%20installation">support@noobaa.com</a>&nbsp;<br />
+<br />
+&nbsp;

@@ -1,0 +1,18 @@
+S3cmd configuration might be tricky, but in this article, you will be able to use it in under 5 minutes.<br />
+<br />
+Create a file called noobaa.conf with the following text. don&#39;t forget to replace &lt;NooBaa IP&gt;, &lt;NooBaa access key&gt;,&nbsp;&lt;NooBaa secret key&gt; with the real values. You can use DNS name instead of IP.&nbsp;<br />
+<br />
+<br />
+<em><span style="color: rgb(0, 0, 255); font-family: arial, sans-serif; font-size: 14px;">[default]</span><br />
+<span style="color: rgb(0, 0, 255); font-family: arial, sans-serif; font-size: 14px;"><span class="il">host_base</span>&nbsp;=&nbsp;</span><span style="color: rgb(0, 0, 255); font-family: arial, sans-serif; font-size: 12.8px;">&lt;NooBaa IP&gt;&nbsp;</span><br />
+<span style="color: rgb(0, 0, 255); font-family: arial, sans-serif; font-size: 14px;">host_bucket =&nbsp;</span><span style="color: rgb(0, 0, 255); font-family: arial, sans-serif; font-size: 12.8px;">&lt;NooBaa IP&gt;&nbsp;</span><br />
+<span style="color: rgb(0, 0, 255); font-family: arial, sans-serif; font-size: 12.8px;"><span style="font-size: 14px;">access_key =&nbsp;</span>&lt;NooBaa access key&gt;&nbsp;<br />
+<span style="font-size: 14px;">secret_key =&nbsp;</span>&lt;NooBaa secret key&gt;&nbsp;<br />
+<span style="font-size: 14px;">use_https = False</span><br />
+<span style="font-size: 14px;">check_ssl_certificate = False</span><br />
+<span style="font-size: 14px;">check_ssl_hostname = False</span><br />
+<span style="font-size: 14px;">signature_v2 = True</span></span></em><br />
+<br />
+Now simply run s3cmd command. For example:<br />
+<br />
+<em><span class="il" style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">s3cmd</span><span style="color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 12.8px;">&nbsp;--config noobaa.conf ls s3://first.bucket</span></em>

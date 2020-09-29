@@ -1,0 +1,46 @@
+<h1>Introduction</h1>
+This document will guide you through NooBaa system setup and assumes that the user has an existing understanding of NooBaa architecture and functionality.&nbsp;<br />
+&nbsp;
+<h3>Setup includes the following high-level steps:</h3>
+1. <strong>NooBaa Core deployment</strong> - A virtual machine that includes NooBaa core server with a management console. This virtual machine also includes a default S3 REST gateway.<br />
+2. <strong>[Optional] Daemon installation and distribution</strong> - Daemon software is required for every storage node that takes part in the storage network. This software is available for download from the virtual machine, as well its unique configuration used for authentication.<br />
+3. <strong>S3 storage client </strong>- In order to use NooBaa Object Storage, S3 client is required. The S3 client connects to the S3 REST gateway, which by default resides on the virtual machine and allows upload/download objects.
+
+<h2><br />
+<br />
+Virtual Machine deployment</h2>
+1. Spin up an instance from the marketplace or your OVA<br />
+2. Make sure the following ports are open
+<ul>
+	<li>80,443&ndash;NooBaa AWS S3 compatible ports</li>
+	<li>8080, 8443 &ndash; NooBaa web management</li>
+	<li>60100-60600 &ndash; In case of a hybrid&nbsp;or on-premises deployment, these ports are required to connect storage nodes to the brain.</li>
+</ul>
+<br />
+3. Connect to your system via http://YourIpHere:8080<br />
+<br />
+By default, you will be required to create a new system. Activation code and email address will be required for Bring Your Own License offers.<br />
+<br />
+In case of a paid marketplace offer, these fields will be disabled, but visible.<br />
+<br />
+<strong>Please fill the following fields:</strong><br />
+<br />
+<strong>Activation Code</strong> &ndash; Use the activation code received by email from NooBaa team. For BYOL offer only<br />
+<strong>Email address</strong> &ndash; Used for management user login. For BYOL offer only.<br />
+<br />
+<img alt="Activation window" src="images/2928882_en/863439" style="width: 600px; height: 347px;" /><br />
+<br />
+If you got the following window or a blank screen, it means that NooBaa core failed to connect to our phonehome system.&nbsp;<br />
+<img alt="" src="images/2928882_en/863441" style="width: 600px; height: 400px;" /><br />
+This may indicate a networking issue or proxy enforcement in your network.&nbsp;<br />
+<br />
+The phonehome system is mandatory only for the activation phase but also helps us to support you proactively.&nbsp;<br />
+<br />
+If you can&#39;t connect this machine to the network for the activation phase, please contact support@noobaa.com<br />
+&nbsp;
+<h2>S3 storage client</h2>
+1. In the overview page, click on the Connect Application button<br />
+2. Use the following details for your S3 application&nbsp;<br />
+Each NooBaa account has a unique access key and a secret key which are used to limit bucket exposure to specific accounts.<br />
+<br />
+*** See the full <a href="http://www.noobaa.com/latest-stable-community-version-documentation">getting started guide</a>&nbsp;to learn more

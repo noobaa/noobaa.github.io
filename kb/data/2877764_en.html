@@ -1,0 +1,14 @@
+When adding a new storage node, you may see it as an offline node, with &quot;No Access&quot; issue (see the image below).<br />
+<br />
+The first step to troubleshooting such case is to check the firewall settings on this node.<br />
+<br />
+Additional information about the ports setup can be found in the following <a href="https://noobaa.desk.com/customer/portal/articles/2866081-minimum-requirements-for-system-installation">article</a><br />
+<br />
+Please make sure that the ports range of 60100-60600 is open for inbound traffic. These ports are used to communicate between the storage nodes to allow an efficient self-healing behavior.&nbsp;<br />
+<br />
+Once you verified that the ports are open, please navigate to the node -&gt; Test &amp; Diagnostics and click on &quot;Run Test&quot; button. This test will run connectivity test and it should pass if the firewall is configured correctly.&nbsp;<br />
+<br />
+For any additional help, please contact support@noobaa.com<br />
+<br />
+<br />
+<img alt="" src="images/2877764_en/818953" style="width: 600px; height: 305px;" />

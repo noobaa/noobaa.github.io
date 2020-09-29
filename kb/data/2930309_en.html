@@ -1,0 +1,49 @@
+<div><span style="font-size:12px;"><span style="font-family:arial,helvetica,sans-serif;">Deployment of NooBaa BYOL image on Google cloud includes the following steps:</span></span><br />
+&nbsp;</div>
+
+<ol>
+	<li>
+	<div><span style="font-size:12px;">Login to Google Cloud Console,</span></div>
+	</li>
+	<li>
+	<div><span style="font-size:12px;">Copy NooBaa image into your cloud storage by using google shell</span></div>
+	</li>
+</ol>
+
+<div><span style="font-size:12px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</span><strong><em><span style="font-size:12px;">gsutil</span></em></strong><span style="font-size:12px;"><strong><em>&nbsp;cp gs://&lt;image link will be provided via email&gt;</em></strong><strong><em>&nbsp;gs://&lt;your bucket name&gt;</em></strong><br />
+<br />
+&nbsp; &nbsp; &nbsp; 3. Navigate to Compute Engine -&gt; Images and click on Create Image button.</span></div>
+
+<div><br />
+<img alt="" src="images/2930309_en/864859" style="width: 800px; height: 458px;" /><br />
+<br />
+<br />
+<br />
+4. Create a new instance<br />
+<br />
+<br />
+<br />
+<br />
+<img alt="" src="images/2930309_en/864856" style="width: 478px; height: 646px;" /><br />
+5. tag the instance network&nbsp;<br />
+<br />
+<img alt="" src="images/2930309_en/864857" style="width: 600px; height: 488px;" /><br />
+&nbsp;<br />
+<br />
+5. Open the following ports:</div>
+
+<div>
+<ul>
+	<li>
+	<div>8080/8443 - management ports</div>
+	</li>
+	<li>
+	<div>80/443 - S3 API compatible access ports</div>
+	</li>
+</ul>
+
+<div><strong>Unlike the following example, please make sure that you open the ports only for your application source IP, to reduce your risks.&nbsp;</strong><br />
+<br />
+<br />
+<img alt="" src="images/2930309_en/864858" style="width: 518px; height: 766px;" /></div>
+</div>

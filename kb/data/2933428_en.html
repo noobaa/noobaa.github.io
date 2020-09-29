@@ -1,0 +1,49 @@
+This article will give you a high-level explanation about virtual hosting<br />
+In general, virtual hosting is the practice of serving multiple websites or mini websites from a single web server. There are two major options to differentiate sites:<br />
+1.&nbsp;&nbsp;Using a different&nbsp;path as part of the URI. Let&#39;s call it path style.&nbsp;<br />
+2.&nbsp;Using different subdomain. Let&#39;s call it virtual hosting.<br />
+<br />
+An ordinary Amazon S3 REST request specifies a bucket by using the first slash-delimited component of the Request-URI path.<br />
+<br />
+Alternatively, you can use virtual hosting can be used to address a bucket in a REST API call by using the HTTP Host header. In practice, Amazon S3 interprets Host as meaning that most buckets are automatically accessible (for limited types of requests) at http://bucketname.s3.amazonaws.com.<br />
+<br />
+<strong>Example Path Style Method</strong><br />
+<br />
+This example uses testbucket as the bucket name and test.jpg as the key name.<br />
+<br />
+The URL is as follows:<br />
+<br />
+http://s3.mypublicservice.com/<strong>testbucket</strong>/test.jpg<br />
+<br />
+The request is as follows:<br />
+<br />
+GET /testbucket/test.jpg HTTP/1.1<br />
+Host: s3.mypublicservice.com<br />
+<br />
+<strong>Example Virtual Hosted&ndash;Style Method</strong><br />
+<br />
+This example uses&nbsp;testbucket as the bucket name and test.jpg as the key name.<br />
+<br />
+The URL is as follows:<br />
+<br />
+http://testbucket.s3.mypublicservice.com/test.jpg<br />
+<br />
+The request is as follows:<br />
+<br />
+GET /test.jpg HTTP/1.1<br />
+Host: <strong>testbucket</strong>.s3.mypublicservice.com<br />
+<br />
+The virtual hosted&ndash;style method requires the bucket name to be DNS-compliant.<br />
+<br />
+Part of the applications use only the virtual hosting&nbsp;approach and don&#39;t allow a configuration for path style, although the AWS SDK allows that.&nbsp;<br />
+&nbsp;<br />
+In order to achieve similar behavior with NooBaa, a virtual hosting must be configured in NooBaa.<br />
+<br />
+<strong>Starting from V2.4.2, virtual hosting is enabled automatically after setting DNS name for your NooBaa system. Check&nbsp;</strong><a href="https://noobaa.desk.com/customer/portal/articles/2866032-set-system-dns-name-">https://noobaa.desk.com/customer/portal/articles/2866032-set-system-dns-name-​</a><br />
+<br />
+Earlier versions require manual configuration, please contact support@noobaa.com.<br />
+<br />
+The second and most important part is to&nbsp;register the DNS resolution of every bucket used by such applications.&nbsp;<br />
+<br />
+You can automate this process by creating a trigger for bucket creation that will run your code to provision this DNS resolution.&nbsp;<br />
+&nbsp;

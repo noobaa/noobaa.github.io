@@ -1,0 +1,36 @@
+<u><strong>Introduction</strong></u><br />
+&nbsp;<br />
+A data reading operation consist of the following:<br />
+1. Client sending a read request<br />
+2. The storage solution performing the read request internally<br />
+3. The storage solution sending the data over the network/fabric.&nbsp;<br />
+<br />
+In order to improve the overall read operation performance, NooBaa assumes that most read operations have specific workload logic, that has a context of an object, client, environment, and proximity.<br />
+<br />
+As an example, a video player that issues a read operation on the first part of a video file.&nbsp;<br />
+From a storage solution perspective, that&#39;s all it got and that what it needs to serve. Putting things into context will grand multiple optimization paths: requests for the rest of the video will probably follow, related videos from the same directory, user or date will be accessed. Other clients in the same <a href="https://noobaa.desk.com/customer/en/portal/articles/2952474-regions">region</a> may access the same file, e.g. video editing team or campus hospital accessing radiology data of a patient.&nbsp;<br />
+<br />
+<u><strong>Data Optimizations</strong></u><br />
+<br />
+NooBaa takes the context into account in several ways.<br />
+First, from an architecture perspective, NooBaa provides scale-out S3-endpoints outside of the cores.&nbsp;<br />
+These S3 endpoints are totally stateless and they are to be deployed in close proximity to the clients and even specifically per heavy applications. Read more on <a href="https://noobaa.desk.com/customer/portal/articles/2951464-performance-scale-by-adding-s3-endpoints">scaling out S3 endpoints article</a>.<br />
+When a client is sending a read request to a NooBaa endpoint, the endpoint will be served with more data then it requested. This is the first part of the <strong>prefetching</strong> of data. Data will be prefetched based on context - e.g. further data ranges in an object.<br />
+The second optimization happens in the storage nodes. Upon read operation request, NooBaa core brings more metadata than requested into the memory and sends the storage nodes requests to read data from drives into their memory. This is the <strong>read-ahead</strong> operation. It will allow serving following requests much faster. NooBaa currently provides it only for storage nodes and not for cloud storage or cloud-like storage. In hybrid scenarios where there are remote data centers based on storage nodes, combined with data centers that have cloud-like storage.<br />
+<br />
+<strong><u>Data Proximity Optimizations</u>&nbsp;</strong><br />
+<br />
+When data is spanned across multiple locations, and data will be written to a single location but consumed from the other, the system would identify the pattern and will give higher priority to bringing the context data closer to the client while it serves the oncoming requests.&nbsp;<br />
+Following requests will be practically served from the close proximity site. Proximity is dictated by binding endpoints to a pool.&nbsp;<br />
+<br />
+As an example, let&#39;s assume that two teams are working on a video project. One in LA, the other in India. Data is replicated and spanned across the sites<br />
+The LA team generates the raw content and writes locally in LA.<br />
+In classic storage solution, the India team can either access the data remotely in LA or wait till it is fully replicated to India. In many cases, both options are not realistic.&nbsp;<br />
+Using NooBaa, when an editor will access the first range of a video in India, NooBaa will simultaneously trigger all mechanisms described above, and they will take effect in reverse order to the way described them:&nbsp;<br />
+1. Higher priority will be given to bring the video to India, assuming it will be required by others there soon enough<br />
+2. Read-ahead will be done on the video&#39;s metadata and data, assuming those requests are upcoming.<br />
+3. Additional data is prefetched to the endpoint.&nbsp;<br />
+<br />
+These optimizations tackle common use cases in research, healthcare, media production and others which are challenged by real distributed data sets and affected by data proximity.&nbsp;<br />
+When an application tries to read data, the challenge is how to bring it as fast as possible, while prefetch is part of the solution, but providing the data from the closest location is even more important.&nbsp;
+<div>&nbsp;</div>

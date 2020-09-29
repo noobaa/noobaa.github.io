@@ -1,0 +1,17 @@
+<div><span style="font-size:16px;"><strong>Architecture background</strong></span><br />
+<span style="font-size:14px;">NooBaa provides an object storage solution that can span across multiple environments, enabling you to setup a system on your premises, in the cloud or both.<br />
+The NooBaa Metadata System in the NooBaa Core utilizes a NoSQL key-value store that can be&nbsp;</span><span style="font-size:14px;">sharded</span><span style="font-size:14px;"> (distributed) and replicated (shards replicated between multiple hosts for failure resilience). The Metadata system requires odd-numbered host population for a&nbsp;</span><span style="font-size:14px;"><span>quorum.&nbsp;</span></span><span style="font-size:14px;">however,</span><span style="font-size:14px;"> there are no limitations against a singleton (non-HA) configuration. Because the NooBaa Core is not in the data-path, NooBaa expects that metadata requirements of even the largest NooBaa implementations will be met with 5 or fewer NooBaa Core VM nodes.<br />
+High-availability configurations are available in the NooBaa Enterprise Edition license.&nbsp;<br />
+High availability in NooBaa is achieved in two layers:</span><br />
+<br />
+<strong><span style="font-size:16px;">Multiple Storage Nodes</span></strong><br />
+<span style="font-size:14px;">Every object that is written to NooBaa goes through a digestion. The output of this process is a set of encrypted chunks. The placement policy will distribute these chunks on as many nodes as possible, in order to achieve better performance and high availability. More nodes will enable faster healing, faster read and write service and lower the chances of a data loss.</span><br />
+<br />
+<span style="font-size:16px;"><strong>Multiple NooBaa Core&nbsp;</strong></span><br />
+<span style="font-size:14px;">The NooBaa core stores all the metadata and knowledge about the data location and status.&nbsp;<br />
+In order to gain high availability for NooBaa core, a clustering of 3 or more servers is required. Simply deploy two or more additional machines with the same OVA, and simply set it with a static IP.&nbsp;<br />
+From the cluster management window of NooBaa, you can attach these additional servers. You will need the IP and the server&#39;s secret key. The secret can be found on the server console.&nbsp;<br />
+Once you attach two or more servers, always odd number, you are set to go.&nbsp;<br />
+NooBaa automatically&nbsp;</span><span style="font-size:14px;">synchronizes</span><span style="font-size:14px;"> the metadata across these servers, and in a&nbsp;</span><span style="font-size:14px;">case</span><span style="font-size:14px;"> of a failure, the servers will elect the new primary server.&nbsp;</span></div>
+
+<div>&nbsp;</div>

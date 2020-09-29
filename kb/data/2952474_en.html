@@ -1,0 +1,25 @@
+<div class="p1"><span class="s1">Regions in NooBaa is a location tag.<br />
+The regions configuration allows customers to associate resources with location.<br />
+Associate a region with location helps to&nbsp;improve performance by setting locality awareness while taking data placement decision and reading data. In addition, using regions is another way to reduce egress costs due to locality awareness during data consumption activities.&nbsp;</span></div>
+
+<p class="p1"><span style="font-size:18px;"><strong>How does it work?&nbsp;</strong></span></p>
+
+<p class="p1">Resources within the same region will be prioritized for data assignments and for serving read requests.<br />
+Using a local endpoint in this region will benefit the proximity to the local resources by reading and writing the data directly from local resources, if possible, and mirror data to a remote location after achieving the required resiliency level locally.&nbsp;<br />
+Another example is using an endpoint in the cloud provider network, and associate both the endpoint and the cloud resource in NooBaa with a region, so applications that run in the cloud would use the right endpoint to avoid redundant&nbsp;egress cost.&nbsp;</p>
+
+<p class="p1"><span style="font-size:18px;"><strong>How to use regions in NooBaa management console?&nbsp;</strong></span></p>
+In order to use regions in NooBaa system, you need to assign regions to the resources.<br />
+<br />
+<strong>Steps:</strong><br />
+1. Go to<strong> Resources &gt; Node pools or cloud storage resource page&nbsp;</strong><br />
+<br />
+<img alt="" src="images/2952474_en/896406" style="width: 211px; height: 69px;" /><br />
+<br />
+2. In the resource page, click on Assign Region
+<div class="p1"><img alt="Assign Region" src="images/2952474_en/896407" style="width: 719px; height: 367px;" /><br />
+<br />
+3. Type the name of the resource region as you decide. To add a new&nbsp;region hit Enter key, if you wish to use an existing region (from another resource), start typing and choose the wanted option from the suggestion box.&nbsp;The region name can be anything you consider as a region (Continent, city, building etc.).<br />
+<img alt="Region type" src="images/2952474_en/896415" style="width: 503px; height: 291px;" /><br />
+<br />
+Once the region is set, you can connect the resources of the same region as <a href="https://noobaa.desk.com/customer/portal/articles/2854268">data placement for data buckets</a>.</div>

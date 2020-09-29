@@ -1,0 +1,28 @@
+NooBaa often used to provide storage service to multiple customers, either external or internal to the company.&nbsp;<br />
+In such case, you will need to use the account management.<br />
+<br />
+<em>Please note that you can automate all the management operations by using lambda functions. Please contact our support@noobaa.com for help.</em><br />
+<br />
+<span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"><strong><u>Account types</u></strong></span><br />
+&nbsp;
+<ul>
+	<li><span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"><strong>Administrator account</strong>&nbsp;- Administrator is allowed to log in to NooBaa web management console. The administrator is responsible for resource management and can add storage nodes, cloud resources, etc.&nbsp; An administrator can also manage the permissions&nbsp;across the system. An administrator has email and password credentials<strong> in addition</strong> to AWS S3 compatible access key and secret key. </span></li>
+	<li><span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"><span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;"><strong>Application account</strong> -&nbsp; An application has only AWS S3 compatible API access to the one or more buckets that were assigned to this account by an administrator. Any new bucket that the application will create, will be visible only to this application account. Application account&nbsp;has only AWS compatible S3 access key and secret key credentials.</span></span></li>
+</ul>
+<span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">Administrator accounts will be used by the system owner, while the application accounts will be created for its customers.&nbsp;</span><br />
+<br />
+<span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">An example of onboarding a new customer:</span>
+
+<ol>
+	<li>Navigate to <strong>Accounts</strong></li>
+	<li><span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">An Administrator creates a new &quot;Application Account&quot; for that customer, with&nbsp;Login Access: disabled). [<a href="#Create account">screenshot</a>]</span></li>
+	<li><span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">[Optionally] the administrator can create a bucket for the customer and enable access to this bucket. Alternatively, the customer will create his own bucket. [<a href="#bucket permission">screenshot</a>]</span></li>
+	<li><span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">The customer will get his AWS S3 compatible credentials and NooBaa&#39;s endpoint via email and will use it with his&nbsp; S3 application. Any application that can work with AWS should work with NooBaa. Same for AWS CLI, S3cmd, and any AWS SDK. [<a href="#account details">screenshot</a>]</span></li>
+	<li><span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">When the customer&#39;s application requests to list available buckets, that list will return empty at first, since that account has no access to any bucket. The list-buckets request will always filter based on permissions.</span></li>
+	<li><span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">When the application creates a new bucket through the S3 API, any such bucket created by the application will automatically be granted access permission only to that application account.&nbsp;</span><span style="color: rgb(42, 49, 58); font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;">Alternatively, an administrator can also create buckets and grant access permissions to a specific application account.</span></li>
+</ol>
+<a id="Create account" name="Create account"><img alt="" src="images/2898132_en/831811" style="width: 600px; height: 527px;" /></a><br />
+<br />
+<a name="bucket permission"><img alt="" src="images/2898132_en/831846" style="width: 600px; height: 526px;" /></a><br />
+<br />
+<a name="account details"><img alt="" src="images/2898132_en/831847" style="width: 600px; height: 446px;" /></a>

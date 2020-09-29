@@ -1,0 +1,92 @@
+<p dir="ltr"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span id="docs-internal-guid-83e9a8e3-4259-b797-0c2e-8dbf489df6ca"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Data resiliency is the ability of stored objects to recover and continue operating in the case of a failure. In NooBaa, there are two types of data resiliency, replication or erasure coding. </span></span></span></span><br class="kix-line-break" />
+<span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span id="docs-internal-guid-83e9a8e3-4259-b797-0c2e-8dbf489df6ca"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">NooBaa objects are broken into parts. These parts are searched for duplications (de-dup) and are encrypted. The data resiliency policy affects how these parts are saved on the bucket resources.</span></span></span></span></p>
+
+<div><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span id="docs-internal-guid-83e9a8e3-4259-e845-1a9f-f65570ed6e5c"><span style="background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Replication</span><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">: Full copies of object parts. Identical parts are placed across storage nodes in different resources. </span></span></span></span>
+
+<p dir="ltr"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span id="docs-internal-guid-83e9a8e3-425a-0703-1ba0-e3c4a2a34bd6"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Recommended configuration is set to 3 copies. </span><br />
+<span style="background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">This configuration results in:</span></span></span></span></p>
+
+<div><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><img alt="" src="images/2918448_en/852133" style="width: 320px; height: 285px;" /></span></span>
+
+<ul>
+	<li dir="ltr">
+	<p dir="ltr"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span id="docs-internal-guid-83e9a8e3-425b-6531-5afa-eaa6b4c739be"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Low rebuild time effort</span><br class="kix-line-break" />
+	<span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">In order to rebuild a failed replica, a single healthy replica needs to be read</span></span></span></span></p>
+	</li>
+	<li><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">200% storage overhead </span></span></span><br />
+	<span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">2 extra replicas are saved for each original object part</span></span></span></span></span><br />
+	&nbsp;</li>
+	<li><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><span id="docs-internal-guid-83e9a8e3-425b-6531-5afa-eaa6b4c739be"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Quicker recovery in failure cases</span></span></span></span></span></li>
+</ul>
+
+<p dir="ltr"><br />
+<span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span id="docs-internal-guid-83e9a8e3-425b-982f-f383-dd4f2fca18e2"><span style="background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">​Erasure coding</span><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">: Each object part is broken into fragments and encoded with redundant data pieces. </span></span></span></span><br />
+<span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span id="docs-internal-guid-83e9a8e3-425b-982f-f383-dd4f2fca18e2"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Recommended configuration is set to 4+2. </span><br />
+<span style="background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">This configuration results in:<br />
+<img alt="" src="images/2918448_en/852135" style="width: 520px; height: 253px;" /></span></span></span></span></p>
+
+<ul>
+	<li dir="ltr">
+	<p dir="ltr"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span id="docs-internal-guid-83e9a8e3-425c-e030-02a7-1a1f0b5c7a5d"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">High rebuild time effort</span><br class="kix-line-break" />
+	<span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">In order to rebuild a single fragment, the number of fragments which needs to be read is equal to the number of data fragments configured</span></span></span></span></p>
+	</li>
+	<li><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">50% storage overhead</span><br />
+	<span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">The overhead is derived from the ratio between the parity and the data fragments​</span></span></span><br />
+	&nbsp;</li>
+	<li><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><span style="background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Long recovery in failure cases</span></span></span></li>
+</ul>
+
+<h4 dir="ltr"><strong><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;">File parts or fragments distribution changes according to the resource type:</span></span></strong></h4>
+
+<div>
+<table align="left" border="1" cellpadding="15" cellspacing="5" style="width:700px;">
+	<thead>
+		<tr>
+			<th scope="row" style="text-align: left; white-space: nowrap; padding: 15px;"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><strong>Resource type</strong></span></span></th>
+			<th scope="col" style="white-space: nowrap; padding: 15px;"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><strong>Replication</strong></span></span></th>
+			<th scope="col"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><strong>Erasure Coding</strong></span></span></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th scope="row"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><strong>Nodes pools</strong></span></span></th>
+			<td><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;">Replicas on nodes pool are distributed between the different nodes in the pool according to the configured policy parameters</span></span></td>
+			<td><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;">Fragments resides in nodes pool are distributed between the different nodes in the pool according to the configured policy parameters</span></span></td>
+		</tr>
+		<tr>
+			<th scope="row"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><strong>Cloud resource</strong></span></span></th>
+			<td><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;">NooBaa considers cloud resource as resilient and keeps only one replica on this type of resource.</span></span></td>
+			<td><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;">NooBaa considers cloud resource as resilient and keeps only data fragments on this type of resource.</span></span></td>
+		</tr>
+		<tr>
+			<th scope="row"><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;"><strong>Internal storage</strong></span></span></th>
+			<td><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;">NooBaa considers internal storage as resilient and keeps only one replica on this type of resource.</span></span></td>
+			<td><span style="font-family:arial,helvetica,sans-serif;"><span style="font-size:14px;">NooBaa considers internal storage as resilient and keeps only data fragments on this type of resource.</span></span></td>
+		</tr>
+	</tbody>
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+&nbsp;</div>
+</div>
+</div>

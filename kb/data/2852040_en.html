@@ -1,0 +1,34 @@
+<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a1d6-ab26-6c64-2c623b554dfe"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">A storage node is a machine with an operating system, CPU, memory, and file system. By installing NooBaa daemon, you actually turn this machine into NooBaa storage node and can start using it as a storage target for NooBaa.</span></span></p>
+
+<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a1d6-ab26-6c64-2c623b554dfe"><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Steps:</span></span></p>
+
+<ol>
+	<li dir="ltr">
+	<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a1d6-ab26-6c64-2c623b554dfe"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Go to </span><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Overview &gt; Install nodes </span></span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a1d6-ab26-6c64-2c623b554dfe"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">In the install nodes Wizard </span><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">&ldquo;Assign&rdquo;</span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> step you need to choose the target pool for the future installed nodes. A pool is a group of nodes created by the administrator to reflect specific characteristics of these nodes. It can be a physical location, performance or any other characteristics. NooBaa&rsquo;s machine learning algorithm will use this grouping in addition to real-time monitoring of the nodes in order to suggest grouping for any newly introduced node.</span>&nbsp;&nbsp; &nbsp;</span>&nbsp;&nbsp; &nbsp;</span><br class="kix-line-break" />
+	<br class="kix-line-break" />
+	<img alt="" src="images/2852040_en/803341" style="width: 479px; height: 239px;" /></span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a1d6-ab26-6c64-2c623b554dfe"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">In the wizard </span><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">&ldquo;select drives&rdquo; step</span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> you will need to choose between using all the drives in the targeted nodes or exclude specific drives from being used. </span><br />
+	<br class="kix-line-break" />
+	<span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">To exclude drive choose the second option and type drives name accurately. After each name hit &ldquo;enter&rdquo; key. </span><br class="kix-line-break" />
+	<br class="kix-line-break" />
+	<span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">* You can also prepare all the drives names in a separate note document (write a drive name and hit enter) and copy the list directly to the Exclude drives text field.</span><br class="kix-line-break" />
+	<span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">* Drives names can be Windows or Linux compatible - at the installation string we will use only the relevant names according to the os type.</span></span><br class="kix-line-break" />
+	<span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><img height="402" src="https://lh5.googleusercontent.com/Pp8F_HybaVsKrXPjGe8_Fmpmu5jR7XWYs6UEuOBmhdEAQrYaeOxMbRmRoIAk7fLeUSvSryfvjhNL9mXnl1bkIFNpXRUCmliVzUO4pVGKmmksdEA50XZ9VLMzqg2Hbmwb3ZGLNgZz" width="455" /></span><br />
+	<br class="kix-line-break" />
+	<span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><img height="403" src="https://lh3.googleusercontent.com/WwQ9o_fr9jBGD7D5AiwZQqJcubNfeFoJmoJz6v9-cPuijjyaNHTdptyp2h8GjOQA3LbIqX3LnbemZLFIHTrV7kSAv7UwVQBrawdmrj3hM5fFDgoZ9rMcPRlHmvcg9xpxBot02obE" width="455" /></span></span><br class="kix-line-break" />
+	&nbsp;</p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a1d6-ab26-6c64-2c623b554dfe"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">In</span><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"> &ldquo;Install&rdquo; step</span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> you will need to copy the installation script according to the machine OS type (you can copy both if needed) and paste it to a distribution tool (any distribution tool, including Puppet, Chef, SCCM, will work as well).</span></span></p>
+	</li>
+</ol>
+
+<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a1d6-ab26-6c64-2c623b554dfe"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><img height="461" src="https://lh5.googleusercontent.com/53f01ntzkYayTuaatfOldoVsDjh2NKTWTyYq0WF5r_NTMbQVG-E_oxXr4wUKle47RI99YVBFWHCEAsuCgn7A0Eq9XJBqDBXBEy0ibyuflS41Cu2AK33KtriZ_EU1S7BP5w3JRMdo" width="520" /></span></span><br class="kix-line-break" />
+&nbsp;</p>
+<span id="docs-internal-guid-1d8c7db5-a1d6-ab26-6c64-2c623b554dfe"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">All nodes will be assigned to the pool you&rsquo;ve chosen in the first step and can be found under </span><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Resources &gt; Pools &gt; Resource name</span><br class="kix-line-break" />
+<span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><img height="291" src="https://lh3.googleusercontent.com/39D9bim5AwnxcnFLuo9CV8WZ_lyUKQiaCiUDVgtAn3x2rsCr9LtwaUyrbMAKhrGxInGaS20Cc4vRPDhKgYgnN8Bl9-F9OoFNCnlX3FKI5blTk--zhve-g3VGtDi6bKvd2vxxF_Y5" width="538" />​</span></span>

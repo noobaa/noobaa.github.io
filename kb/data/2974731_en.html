@@ -1,0 +1,59 @@
+<strong><em>NooBaa supports S3A API, which is used by Hadoop and others.&nbsp;<br />
+Example configuration for Hadoop can be found below. Please replace &lt;NooBaa endpoint&gt; &lt;NooBaa bucket&gt; &lt;NooBaa access key&gt; and &lt;NooBaa secret key&gt; with your NooBaa system. You can get it by clicking on Connect Application button in the main window. More information can be found in <a href="https://noobaa.desk.com/customer/en/portal/articles/2852068-connect-an-application-">Connect Application article</a><br />
+<br />
+&nbsp;noobaa-s3a-config.xml:<br />
+<br />
+&lt;configuration&gt;<br />
+<br />
+&nbsp; &nbsp; &lt;property&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;name&gt;fs.defaultFS&lt;/name&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;value&gt;s3a://&lt;NooBaa bucket&gt;&lt;/value&gt;<br />
+&nbsp; &nbsp; &lt;/property&gt;<br />
+&nbsp; &nbsp; &lt;property&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;name&gt;fs.s3a.endpoint&lt;/name&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;value&gt;&lt;NooBaa endpoint&gt;&lt;/value&gt;<br />
+&nbsp; &nbsp; &lt;/property&gt;<br />
+&nbsp; &nbsp; &lt;property&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;name&gt;fs.s3a.connection.ssl.enabled&lt;/name&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;value&gt;false&lt;/value&gt;<br />
+&nbsp; &nbsp; &lt;/property&gt;<br />
+&nbsp; &nbsp; &lt;property&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;name&gt;fs.s3a.path.style.access&lt;/name&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;value&gt;true&lt;/value&gt;<br />
+&nbsp; &nbsp; &lt;/property&gt;<br />
+<br />
+&nbsp; &nbsp; &lt;property&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;name&gt;fs.s3a.access.key&lt;/name&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;value&gt;&lt;NooBaa access key&gt;&lt;/value&gt;<br />
+&nbsp; &nbsp; &lt;/property&gt;<br />
+&nbsp; &nbsp; &lt;property&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;name&gt;fs.s3a.secret.key&lt;/name&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;value&gt;&lt;NooBaa secret key&gt;&lt;/value&gt;<br />
+&nbsp; &nbsp; &lt;/property&gt;<br />
+<br />
+&lt;/configuration&gt;</em></strong><br />
+<br />
+<br />
+Quickly test it with docker and NooBaa. Simply upload a text file to your &lt;NooBaa bucket&gt; and run the following commands&nbsp;<br />
+<br />
+This command will list the objects in your &lt;NooBaa bucket&gt;<br />
+<br />
+<strong><em>docker run -it --rm --name hadoop \<br />
+&nbsp; -e HADOOP_OPTIONAL_TOOLS=&quot;hadoop-aws&quot; \<br />
+&nbsp; -v $PWD/noobaa-s3a-config.xml:/etc/hadoop/core-site.xml \<br />
+&nbsp; bde2020/hadoop-namenode:2.0.0-hadoop3.1.1-java8 -- \<br />
+&nbsp; hadoop fs -ls /</em></strong><br />
+<br />
+<br />
+This command will count words of &lt;file.txt&gt; and output the results to a folder in your &lt;NooBaa bucket&gt;/wordcount<br />
+​<br />
+<strong><em>docker run -it --rm --name hadoop \<br />
+&nbsp; -e HADOOP_OPTIONAL_TOOLS=&quot;hadoop-aws&quot; \<br />
+&nbsp; -v $PWD/noobaa-s3a-config.xml:/etc/hadoop/core-site.xml \<br />
+&nbsp; bde2020/hadoop-namenode:2.0.0-hadoop3.1.1-java8 -- \<br />
+&nbsp;&nbsp;&nbsp;hadoop jar /opt/hadoop-3.1.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.1.jar wordcount /&lt;file.txt&gt; /wordcount</em></strong><br />
+<br />
+<br />
+<br />
+<br />
+&nbsp;

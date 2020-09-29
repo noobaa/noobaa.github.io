@@ -1,0 +1,59 @@
+NooBaa uses a self-signed certificate by default.&nbsp;<br />
+<br />
+Some applications can&#39;t tolerate self-signed&nbsp;certificate, and in general, these certificates considered as a bad practice, for security reasons.&nbsp;<br />
+<br />
+If you wish to upload a valid certificate, please zip both certificate and private key in a zip.&nbsp;<br />
+<br />
+Make sure that both are in PEM format.&nbsp;<br />
+<br />
+For example, if you have a certificate named mytest_com.cert and a key named mytest_com.key,&nbsp;<br />
+run the following command:<br />
+<strong>zip -0 mytest.zip mytest*</strong><br />
+<br />
+In NooBaa, navigate to management -&gt; Configuration -&gt; SSL Certificate and upload the zip file.&nbsp;<br />
+<br />
+<img alt="" src="images/2924136_en/857868" style="width: 600px; height: 344px;" />
+<p class="p1"><br />
+<span style="font-size:12px;"><strong>Troubleshooting</strong></span></p>
+
+<p class="p1"><span style="font-size:12px;"><u>Uploading SSL cartificate failed: The provided certificate is invalid</u><br />
+in most of the case, the problem is that the certificate is in binary format, instead of&nbsp;</span><span style="font-size:12px;">PEM</span><span style="font-size:12px;">.&nbsp;<br />
+Try the following command to verify:<br />
+<strong><em>cat server.cert</em></strong><br />
+If the output is <u>printable</u>, please contact support@noobaa.com<br />
+If the output is not printable, the file format can be either PKCS12 or DER format.&nbsp;<br />
+In order to identify the format, run the following&nbsp;command:</span><br />
+<em><strong><span style="font-size:12px;"><em><strong>openssl</strong></em> x509 -in server_DER_format.cert -inform DER -text</span></strong></em><br />
+<span style="font-size: 12px;">If it is a <strong>DER</strong> format, you will be able to see a clear text certificate.&nbsp;<br />
+Convert DER to PEM with the following command:</span><br />
+<span style="font-size: 12px;"><em><strong>openssl</strong></em><em><strong> x509 -inform der -in&nbsp;server_DER_format.cert&nbsp;-out </strong></em><em><strong>server</strong></em><em><strong>.cert</strong></em><br />
+Now zip the server certificate with the matching key and try to upload again.</span><br />
+<span style="font-size:12px;">If it&#39;s a <strong>PKCS12</strong> format, you will get an error</span><br />
+<strong><em><span style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;; font-size: 12px;">unable to load certificate</span></em></strong><br />
+<span style="font-size:12px;">Assuming it&#39;s PKCS12, you can convert it to PEM with the following command:</span><br />
+<style type="text/css">p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px 'Helvetica Neue'; color: #000000}
+</style>
+</p>
+
+<p class="p1"><em><strong><span style="font-size:12px;">openssl pkcs12&nbsp; -in server_PKCS_format.cert -out server.cert -nodes -nokeys -nomac -chain</span></strong></em></p>
+
+<p class="p1"><span style="font-size:12px;">Open server.cert and remove all the lines before&nbsp;</span>
+<style type="text/css">p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px 'Helvetica Neue'; color: #000000}
+</style>
+</p>
+
+<p class="p1"><span style="font-size:12px;">-----BEGIN CERTIFICATE-----</span></p>
+
+<p class="p1"><span style="color: rgb(0, 0, 0); font-family: &quot;Helvetica Neue&quot;; font-size: 12px;">Now zip the server certificate with the matching key and try to upload again.</span><br />
+<style type="text/css">p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px 'Helvetica Neue'; color: #000000}
+</style>
+</p>
+
+<p class="p1"><span style="font-size:12px;"><u>Uploading SSL cartificate failed: end of central directory record signature not found</u><br />
+Usually indicates a problem with the zip. Please make sure that you zip the files without any hierarchy&nbsp;</span><br />
+<br />
+<span style="font-size:12px;"><u>​</u></span></p>
+<style type="text/css">p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px 'Helvetica Neue'; color: #000000}
+</style>
+<style type="text/css">p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 26.0px 'Helvetica Neue'; color: #000000}
+</style>

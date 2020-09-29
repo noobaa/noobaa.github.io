@@ -1,0 +1,27 @@
+Using Restic with NooBaa requires the following steps:<br />
+<br />
+<strong><u>Configuration</u></strong><br />
+&nbsp;
+<div>export RESTIC_REPOSITORY=&quot;s3:https://&lt;NooBaa endpoint&gt;/&lt;NooBaa bucket&gt;&rdquo;&nbsp;</div>
+
+<div>export AWS_ACCESS_KEY_ID=&quot;&lt;NooBaa access key&gt;&rdquo;&nbsp;</div>
+
+<div>export AWS_SECRET_ACCESS_KEY=&quot;&lt;NooBaa secret key&gt;&rdquo;&nbsp;</div>
+
+<div>export RESTIC_PASSWORD=&quot;&lt;preferred password&gt; &rdquo;&nbsp;<br />
+<br />
+<strong><u>SSL certificate</u></strong><br />
+<br />
+Restic requires a valid SSL certificate on the target backup.&nbsp;<br />
+If you are interested in uploading a valid certificate to your NooBaa system, please read the following <a href="https://noobaa.desk.com/customer/portal/articles/2924136-ssl-certificate">article</a>.<br />
+Alternatively, you can provide CA certificate for Restic with the flag&nbsp;--cacert&nbsp;and provide a self-signed&nbsp;certificate for both NooBaa and Restic.&nbsp;<br />
+<br />
+<strong>Example: </strong><br />
+let&#39;s assume that NooBaa DNS name is www.testme.com.&nbsp;<br />
+You can generate a self-signed certificate on the following website: <a href="http://www.selfsignedcertificate.com/">http://www.selfsignedcertificate.com/</a><br />
+Download the 37665497_www.testme.com.cert and 37665497_www.testme.com.key files, zip them and upload NooBaa per the instructions in the following&nbsp;<a href="https://noobaa.desk.com/customer/portal/articles/2924136-ssl-certificate">article</a>.<br />
+<br />
+<strong><u>Running Restic</u></strong><br />
+<br />
+<em>restic --cacert 37665497_www.testme.com.cert init --repo&nbsp; s3:https://www.testme.com/restic&nbsp;&nbsp;<br />
+restic --cacert 37665497_www.testme.com.cert &nbsp;-r s3:https://www.testme.com/restic&nbsp;backup .</em></div>

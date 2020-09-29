@@ -1,0 +1,25 @@
+<div dir="ltr"><span id="docs-internal-guid-2bdc2e46-2e44-72a4-36f4-8bcf2063a1c8"><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Recommended OVA VM settings:</span></span></div>
+
+<ul>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-2bdc2e46-2e44-72a4-36f4-8bcf2063a1c8"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">8 CPUs, 16GB RAM or </span></span><span style="color: rgb(68, 68, 68); font-family: helvetica;">A3, A4 or A7&nbsp;</span>on Azure marketplace.</div>
+	</li>
+	<li dir="ltr">
+	<div dir="ltr"><span style="background-color: transparent; white-space: pre-wrap;">Three windows or Linux nodes, each with more than 15GB free space.</span></div>
+	</li>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-2bdc2e46-2e44-72a4-36f4-8bcf2063a1c8"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Alternatively, you can connect only cloud resource (Azure blob storage or AWS S3) and start working immediately.</span></span><br />
+	&nbsp;</div>
+	</li>
+</ul>
+
+<div dir="ltr"><span id="docs-internal-guid-2bdc2e46-2e44-72a4-36f4-8bcf2063a1c8"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><strong>Firewall</strong> </span></span></div>
+
+<ul dir="ltr">
+	<li><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">The nodes need network access on port 8443 to the VM</span></li>
+	<li><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">The nodes and the core VM need network access one to another on one of the ports 60100-60600 (configurable).</span></li>
+	<li><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">NooBaa core (VM) management ports are 8080 and 8443 </span></li>
+	<li>High availability - open&nbsp;port 27000</li>
+	<li>S3 public access ports are 80 and 443<br />
+	&nbsp;</li>
+</ul>

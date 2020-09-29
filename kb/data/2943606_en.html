@@ -1,0 +1,81 @@
+There are cases, where you may want to share data from a bucket, either with or without password protection.<br />
+<br />
+nginx&nbsp;proxy can be used in this case. Below you can find a quick guide on how to do it.<br />
+<br />
+<strong><u>nginx</u></strong><strong><u> installation</u></strong><br />
+<br />
+Download nginx (1.9.9 in my case), follow the guide <a href="https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/#sources_download">here</a>&nbsp;<br />
+<br />
+On CentOS 7.3, you may need the following packages. Simply run the following command:<br />
+<br />
+<em>yum install </em><em>gcc</em><em> </em><em>pcre</em><em>-devel </em><em>openssl</em><em>-devel </em><em>libxslt</em><em>-devel gd gd-devel </em><em>perl</em><em>-ExtUtils-Embed </em><em>zlib</em><em>-devel </em><em>geoip</em><em>-devel </em><em>lua</em><em> </em><em>lua</em><em>-devel </em><br />
+<br />
+Download the following modules, unzip to a folder (in our case, it&#39;s /tmp&nbsp;for clarity):<br />
+<br />
+https://github.com/openresty/set-misc-nginx-module<br />
+https://github.com/simplresty/ngx_devel_kit<br />
+https://github.com/openresty/lua-nginx-module<br />
+<br />
+run the following commands (/tmp means you need to download this package from git and unzip it):<br />
+<br />
+1. <em>/configure --with-http_addition_module --with-http_dav_module --with-http_flv_module --with-http_geoip_module --with-http_gzip_static_module --with-http_image_filter_module --with-http_mp4_module --with-http_perl_module --with-http_random_index_module --with-http_secure_link_module --with-http_v2_module --with-http_sub_module --with-http_xslt_module --with-mail --with-mail_ssl_module&nbsp; --add-module=/tmp/ngx_devel_kit-master/ --add-module=/tmp/set-misc-nginx-module-master&nbsp; --add-module=/tmp/lua-nginx-module-master</em><br />
+2. <em>make</em><br />
+3. <em>make install</em><br />
+<br />
+<br />
+<u><strong><u>ngnix</u> configuration</strong></u><br />
+<br />
+`#user&nbsp; nobody;<br />
+worker_processes&nbsp; 1;<br />
+daemon &quot;off&quot;;<br />
+error_log&nbsp; /var/log/nginx_new_error.log;<br />
+<br />
+<br />
+events {<br />
+&nbsp; &nbsp; worker_connections&nbsp; 1024;<br />
+}<br />
+<br />
+http {<br />
+<br />
+&nbsp; &nbsp; server {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; listen&nbsp; &nbsp; &nbsp; &nbsp;80;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; server_name&nbsp; localhost;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; resolver 127.0.0.1;<br />
+location / {<br />
+&nbsp; &nbsp; try_files $uri @s3;<br />
+}<br />
+<br />
+location @s3 {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />
+&nbsp; &nbsp; set $s3_bucket&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &#39;<strong>&lt;replace with bucket name&gt;</strong>&#39;;<br />
+&nbsp; &nbsp;<br />
+&nbsp; &nbsp; set $key $request_uri;<br />
+&nbsp; &nbsp; set $aws_access_key &#39;<strong>&lt;NooBaa access key&gt;</strong>&#39;;<br />
+&nbsp; &nbsp; set $aws_secret_key &#39;<strong>&lt;NooBaa secret key&gt;</strong>&#39;;<br />
+&nbsp; &nbsp; set_by_lua $now&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;return ngx.cookie_time(ngx.time())&quot;;<br />
+&nbsp; &nbsp; set $aws_signature&nbsp; &nbsp; &nbsp; &#39;&#39;;<br />
+&nbsp; &nbsp; set $string_to_sign&nbsp; &nbsp; &nbsp;&quot;$request_method\n\n\n\nx-amz-date:$now\n/$s3_bucket$key&quot;;<br />
+&nbsp; &nbsp; set_hmac_sha1&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$aws_signature $aws_secret_key $string_to_sign;<br />
+&nbsp; &nbsp; set_encode_base64&nbsp; &nbsp; &nbsp; &nbsp;$aws_signature $aws_signature;<br />
+&nbsp; &nbsp; proxy_http_version&nbsp; &nbsp; &nbsp; 1.1;<br />
+&nbsp; &nbsp; proxy_set_header&nbsp; &nbsp; &nbsp; &nbsp; x-amz-date $now;<br />
+&nbsp; &nbsp; proxy_set_header&nbsp; &nbsp; &nbsp; &nbsp; Authorization &#39;AWS $aws_access_key:$aws_signature&#39;;<br />
+&nbsp; &nbsp; proxy_set_header&nbsp; &nbsp; &nbsp; &nbsp; Host $s3_bucket.<strong>&lt;replace with NooBaa endpoint&gt;</strong>;<br />
+&nbsp; &nbsp; proxy_hide_header&nbsp; &nbsp; &nbsp; &nbsp;x-amz-id-2;<br />
+&nbsp; &nbsp; proxy_hide_header&nbsp; &nbsp; &nbsp; &nbsp;x-amz-request-id;<br />
+&nbsp; &nbsp; proxy_hide_header&nbsp; &nbsp; &nbsp; &nbsp;Set-Cookie;<br />
+&nbsp; &nbsp; proxy_ignore_headers&nbsp; &nbsp; &quot;Set-Cookie&quot;;<br />
+&nbsp; &nbsp; proxy_buffering&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;off;<br />
+&nbsp; &nbsp; proxy_intercept_errors&nbsp; on;<br />
+<br />
+&nbsp; &nbsp; proxy_pass <strong>&lt;replace with NooBaa endpoint&gt;</strong>;<br />
+<br />
+&nbsp; &nbsp; #uncomment the two lines below for password protection
+<pre class="prebox">
+  #auth_basic &quot;Restricted&quot;;
+  #auth_basic_user_file /home/username/nginx/example.com/.htpasswd;</pre>
+<br />
+&nbsp; &nbsp; }<br />
+&nbsp; }<br />
+}<br />
+`

@@ -1,0 +1,22 @@
+When aws&nbsp;cli&nbsp;is needed, you can connect it to your NooBaa system.<br />
+The following steps help you to do it.<br />
+<br />
+1. Install aws&nbsp;cli -&nbsp; <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html">https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html</a><br />
+2. run the following command. Provide your credentials by using the following <a href="https://noobaa.desk.com/customer/portal/articles/2852068-connect-an-application-">article</a><br />
+<em>&nbsp; &nbsp; &nbsp;</em><em>aws</em><em> configure --profile noobaa<br />
+<br />
+AWS Access Key ID [****************RqzV]:&nbsp;<br />
+AWS Secret Access Key [****************eUFm]:&nbsp;<br />
+Default region name [None]:&nbsp;<br />
+Default output format [None]:&nbsp;</em><br />
+<br />
+3.&nbsp; Test with ls<br />
+aws s3 --profile noobaa --endpoint &lt;Replace with your endpoint&gt; ls<br />
+<br />
+<em>Tip:</em> you can run the following command&nbsp;<br />
+alias s3=&#39;AWS_ACCESS_KEY_ID=XXXXX AWS_SECRET_ACCESS_KEY=XXXXX aws --endpoint &lt;endpoint&gt; s3&#39;<br />
+<br />
+once you run this command, you can use the commands in a short form:<br />
+s3 ls<br />
+s3 ls first.bucket<br />
+&nbsp;

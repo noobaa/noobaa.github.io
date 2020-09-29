@@ -1,0 +1,37 @@
+Data resiliency can be configured for every bucket, and allow multiple storage efficiency&nbsp;policies in a single system.&nbsp;<br />
+Storage efficiency translates in many cases into money. Three replicas would use more disk space compared to 4+2 EC policy and hence will have different economic.&nbsp;<br />
+<br />
+With that said, it&#39;s important to keep in mind that EC effects the availability of the system ad the ratio will determine the number of failures that the bucket would be able to tolerate, as well as the time it will take to rebuild the data.&nbsp;<br />
+<br />
+Additional information&nbsp;on data resiliency can be found in the following <a href="https://noobaa.desk.com/customer/portal/articles/2918448-bucket-data-resiliency-">article</a>
+
+<h4 dir="ltr"><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 14px;"><span id="docs-internal-guid-83e9a8e3-425f-456c-0f30-eb4ca2b28886"><span style="background-color: transparent; font-weight: 700; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Changing the default data resiliency policy can be done with the following steps</span></span></span></span></h4>
+
+<ol>
+	<li><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 14px;">Go to&nbsp;<strong>buckets &gt; bucket page</strong></span></span></li>
+	<li><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 14px;">In bucket policies tab, go to Data resiliency and click on &ldquo;Edit Data Resiliency&rdquo;&nbsp;</span></span></li>
+	<li><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 14px;">By default, the selected resiliency type is replication. To change the selected type, click on Erasure coding radio button.</span></span></li>
+	<li><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 14px;">To configure a different number of replicas or fragments click on &ldquo;Advanced Settings&rdquo; and set the wanted number.</span></span></li>
+</ol>
+The default data resiliency policy is 3 full replicas.<br />
+<br />
+<img alt="" src="images/2921847_en/855520" style="width: 600px; height: 369px;" /><br />
+<br />
+In case, you want to change to a more efficient policy, we recommend on 4 +2 policy, which will two failures, while the rebuild time is relatively fast.<br />
+&nbsp;<br />
+<br />
+<img alt="" src="images/2921847_en/855521" style="width: 600px; height: 368px;" /><br />
+<br />
+An advanced mode is also available, for a customized erasure coding setting,&nbsp;while the information about&nbsp;the fault tolerance and rebuild efforts provided for any selected combination.<br />
+<br />
+<span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 14px;">The minimum number of replications is 1 (not recommended due 0 failure tolerance)<br />
+The Minimum number of fragments is 1+1.<br />
+The sum of data+parity could be 256 maximum.</span></span>
+
+<ol>
+	<li><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 14px;">Each setting will change the summary details according to the desired configuration, pay attention to any alerts that might appear due to incompatible policies.</span></span></li>
+	<li><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 14px;">Once configurations are set, click on &ldquo;Done&rdquo;&nbsp;</span></span></li>
+	<li><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 14px;">The bucket status will most likely be changed to &ldquo;rebuilding&rdquo; while all object files are changing according to the new data resiliency policy.&nbsp;</span></span></li>
+	<li><span style="font-family: arial, helvetica, sans-serif;"><span style="font-size: 14px;">All current data resiliency details will appear in the collapsible section in bucket policies tab.</span></span></li>
+</ol>
+<img alt="" src="images/2921847_en/855522" style="width: 600px; height: 370px;" />

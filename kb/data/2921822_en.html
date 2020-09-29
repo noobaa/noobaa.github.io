@@ -1,0 +1,16 @@
+The bucket spillover is an alternative storage, either internal storage, which is available on NooBaa core machine or in any other storage pool.<br />
+<br />
+This feature allows a quicker onboarding, and once NooBaa core is up and running, an application can start to write and read data from NooBaa.<br />
+Note that spillover is limited by its size and should be used for proof of concept or as a temporary solution.<br />
+<br />
+Spillover will be used when the bucket storage is not enough to store new data. Any &ldquo;spilled-over&rdquo; data will be written to a resource configured as the spillover storage, which can be &ldquo;system-internal-storage&rdquo; or any other storage pool.&nbsp; The system-internal-storage&nbsp;consists of the available storage on NooBaa core machine. Since there is a size limitation and since the&nbsp;internal resource is a low-performance resource, NooBaa will only write 1 copy and ignore any data resiliency or data policy configurations. Once the bucket data placement selected resources will be available again, data will start to spill-back automatically.<br />
+<br />
+In the system&#39;s default bucket (first.bucket), the spillover settings are&nbsp;enabled by default. For any other bucket that will be created in the system, you will need to enable the spillover option.<br />
+<br />
+To enable/ disable this option, navigate to <strong>Buckets -&gt; Bucket page -&gt; Bucket Policies tab-&gt; Spillover section</strong>.&nbsp;<br />
+<br />
+Click on &ldquo;enable spillover&rdquo; if you wish to turn on the spillover option for the selected bucket.&nbsp;<br />
+<br />
+<img alt="" src="images/2921822_en/855463" style="width: 600px; height: 361px;" /><br />
+<br />
+&nbsp;

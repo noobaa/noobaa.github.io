@@ -1,0 +1,26 @@
+IP collision is caused by several servers&nbsp;in the network which has the same IP.&nbsp;<br />
+<br />
+If you got the following message on your NooBaa console:<br />
+<img alt="IP conflict" src="images/2950678_en/893821" style="width: 700px; height: 82px;" /><br />
+it means that NooBaa has detected an IP collision of its own IP with another device in the network.<br />
+<br />
+This article would help you to solve this issue. There are two main courses.<br />
+<br />
+<strong><u>Changing NooBaa core IP</u><br />
+<br />
+Before you perform this step, please make sure you configured DNS name for NooBaa core. Setting DNS name will make sure that the storage node can connect to NooBaa core regardless of its IP.&nbsp;</strong><br />
+Read more about DNS settings <a href="https://noobaa.desk.com/customer/portal/articles/2866032-set-system-dns-name-">here</a><br />
+<br />
+<strong>Static IP - </strong>In case NooBaa core is using a static IP, the easiest solution is to change this IP to another IP.&nbsp;&nbsp;<br />
+<strong>DHCP</strong> - In case NooBaa core is configured with DHCP, you can go the first install wizard and re-apply the DHCP settings. if the problem persists you will need to find the second device which holds this IP.<br />
+<br />
+<u><strong>Finding the second device</strong></u>&nbsp;<br />
+<br />
+If using static or if re-applying DHCP didn&#39;t help. You can try to find the second&nbsp;server by one of the following:
+<ol>
+	<li>In order to get all the MAC addresses which are connected to this IP, you can run <em><span style="color:#4B0082;">arp -a</span>&nbsp;</em>&nbsp;command from a LINUX machine.</li>
+	<li>You can try to get information about the second server by running the command&nbsp;<span style="color:#4B0082;"><em>nbtstat</em><em> -</em><em>a &lt;</em>IP&gt;</span> from a WINDOWS machine.</li>
+	<li>If the IP is associated to a DNS name, you can use the&nbsp;<span style="color:#4B0082;"><em>nslookup</em></span>&nbsp;command from a LINUX server.</li>
+	<li>You can try to find the hostname associated to this IP by running the <span style="color:#4B0082;"><em>host</em></span> command from a Linux server.&nbsp;</li>
+	<li>You can install the&nbsp;<em><span style="color:#4B0082;">nbtscan</span>&nbsp;</em>package on a Linux&nbsp;server and run it.</li>
+</ol>

@@ -1,0 +1,50 @@
+Sharing part of the data stored in NooBaa is a common use case.&nbsp;<br />
+&nbsp;
+<div>In AWS S3 there is a sharing option called pre signed URL.</div>
+
+<div>&nbsp;</div>
+
+<div><a data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html&amp;source=gmail&amp;ust=1504356340227000&amp;usg=AFQjCNEVOlxjPdGAcz03r87-fjN43htp3g" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html" target="_blank">http://docs.aws.amazon.com/<wbr />AmazonS3/latest/dev/<wbr />ShareObjectPreSignedURL.html</a></div>
+
+<div>&nbsp;</div>
+
+<div>NooBaa supports this option out of the box.<br />
+&nbsp;</div>
+
+<div>Generating this shared URL is easy. It&#39;s possible even via&nbsp;command line.&nbsp;</div>
+
+<div><br />
+Below you can find a step by step tutorial to share data via AWS&nbsp;CLI.<br />
+&nbsp;</div>
+
+<div><b><u>One time setup</u></b></div>
+
+<div>&nbsp;</div>
+
+<div>1. Install standard AWS&nbsp;CLI from here&nbsp;<a data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=https://aws.amazon.com/cli&amp;source=gmail&amp;ust=1504356340227000&amp;usg=AFQjCNHmW40UXDg8Xgi4umKutZTUsNujGg" href="https://aws.amazon.com/cli" target="_blank">https://aws.amazon.com/<wbr />cli</a></div>
+
+<div>2. edit the <strong>credentials</strong> file&nbsp;and add the following text. Replace the magenta colored text with your own information.</div>
+
+<div>
+<p class="m_-2998013718350746025gmail-p1"><span style="color:#0000FF;"><span class="m_-2998013718350746025gmail-s1">[<b>noobaa</b>]</span></span></p>
+
+<p class="m_-2998013718350746025gmail-p1"><span style="color:#0000FF;"><span class="m_-2998013718350746025gmail-s1">aws_access_key_id = </span></span><span style="color:#ff0099;"><span class="m_-2998013718350746025gmail-s1">&lt;replace with your own key&gt;</span></span></p>
+
+<p class="m_-2998013718350746025gmail-p1"><span style="color:#0000FF;"><span class="m_-2998013718350746025gmail-s1">aws_secret_access_key = </span></span><span style="color:#ff0099;"><span class="m_-2998013718350746025gmail-s1">&lt;replace with your own secret&gt;</span></span></p>
+
+<p class="m_-2998013718350746025gmail-p1"><span class="m_-2998013718350746025gmail-s1"><u><b>Sign command</b></u></span></p>
+</div>
+
+<div>
+<p class="m_-2998013718350746025gmail-p1"><span class="m_-2998013718350746025gmail-s1">aws s3 presign --profile=<b>noobaa</b>&nbsp;--<wbr />endpoint-url=http://<strong><span style="color:#ff0099;">&lt;my NooBaa DNA name&gt;</span></strong>&nbsp;<span style="color:#ff0099;"><strong>&lt;bucket name&gt;</strong></span><strong>/</strong><span style="color:#ff0099;"><b>&lt;file name&gt;</b></span>&nbsp;--expires-in 36000</span></p>
+
+<p class="m_-2998013718350746025gmail-p1"><b><u>Example with NooBaa demo system</u></b></p>
+
+<p class="m_-2998013718350746025gmail-p1"><span class="m_-2998013718350746025gmail-s1"><i>aws s3 presign --profile=<strong>noobaa</strong> --endpoint-url=<a data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://noobaademo.westus2.cloudapp.azure.com&amp;source=gmail&amp;ust=1504356340227000&amp;usg=AFQjCNGx4dacvmWaTWV8GkDG8NIBbxjfjQ" href="http://noobaademo.westus2.cloudapp.azure.com/" target="_blank">http://<wbr />noobaademo.com</a>&nbsp;movies/PeopleAreAwesome.<wbr />mp4 --expires-in 36000</i></span></p>
+
+<p class="m_-2998013718350746025gmail-p1"><span class="m_-2998013718350746025gmail-s1"><b>The result - Shared&nbsp;<span style="text-decoration-line: underline;">public</span>&nbsp;file with this link, valid for 36000 seconds (10 hours)</b></span></p>
+
+<p class="m_-2998013718350746025gmail-p1"><span class="m_-2998013718350746025gmail-s1"><a data-saferedirecturl="https://www.google.com/url?hl=en&amp;q=http://noobaademo.westus2.cloudapp.azure.com/movies/PeopleAreAwesome2016.mp4?AWSAccessKeyId%3DbELw8jxDFTVLnK8sBhiS%26Expires%3D1504305155%26Signature%3DWKeQshBfzINMZP2fBWIt%252BPhGfVA%253D&amp;source=gmail&amp;ust=1504356340227000&amp;usg=AFQjCNEmtO7ar9PTBe1Y8MCfy9dTzNYUAg" href="http://noobaademo.westus2.cloudapp.azure.com/movies/PeopleAreAwesome2016.mp4?AWSAccessKeyId=bELw8jxDFTVLnK8sBhiS&amp;Expires=1504305155&amp;Signature=WKeQshBfzINMZP2fBWIt%2BPhGfVA%3D" target="_blank">http://noobaademo.com/movies/<wbr />PeopleAreAwesome.mp4?<wbr />AWSAccessKeyId=<wbr />wLEbxj8LVTFDnK8sShib&amp;Expires=<wbr />1504305155&amp;Signature=<wbr />WKshQeBfzIMNZP4fBWIt%2BPhGfVA%<wbr />3D</a></span><br />
+<br />
+&nbsp;</p>
+</div>

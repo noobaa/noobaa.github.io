@@ -1,0 +1,24 @@
+<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a739-2385-333c-4146d585c549"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">NooBaa Buckets are data containers that behave similarly to AWS S3 buckets. In order to upload data, you can use the first bucket that was automatically created for you on system creation or create a new one. Alternatively, </span></span><span id="docs-internal-guid-1d8c7db5-a739-2385-333c-4146d585c549"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">You can create a bucket using the management console or via AWS S3 compatible application. </span></span></p>
+
+<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a739-2385-333c-4146d585c549"><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Steps: </span></span></p>
+
+<ol>
+	<li dir="ltr">
+	<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a739-2385-333c-4146d585c549"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Go to </span><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Buckets &gt; Create Bucket</span></span></p>
+	</li>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-1d8c7db5-a739-2385-333c-4146d585c549"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Type a valid bucket name according to the name constraints (S3 protocol restrictions).</span></span></div>
+	</li>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-1d8c7db5-a739-2385-333c-4146d585c549"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">On set policy step you need to choose the policy type you wish to apply for this bucket. You can choose either to spread the bucket&rsquo;s data among the chosen resources or to mirror for full duplication between pools. </span><a href="https://noobaa.desk.com/customer/en/portal/articles/2677059-bucket-data-placement-policy-%E2%80%93-spread-vs-mirror?t=775839"><span style="background-color: transparent; font-style: italic; text-decoration-line: underline; vertical-align: baseline; white-space: pre-wrap;">Learn more about data placement here</span></a></span></div>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a739-2385-333c-4146d585c549"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Choose the resources you wish to place your data on. </span><br class="kix-line-break" />
+	<span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">* If you chose mirror policy, make sure that you have selected at least 2 resources for mirror replication. </span><br class="kix-line-break" />
+	<span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">* Combining on-premise and cloud resources may cause performances issues. </span></span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a739-2385-333c-4146d585c549"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Once done, click on &ldquo;Create&rdquo;. The new bucket will be added to the bucket list.<br />
+	<img alt="" src="images/2852669_en/803324" /></span></span></p>
+	</li>
+</ol>

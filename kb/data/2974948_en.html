@@ -1,0 +1,22 @@
+Containers deployment is easy. You can deploy NooBaa on Kubernetes, OpenShift, MiniShift, and MiniKube.
+<h2>Prerequisites</h2>
+
+<p>You will need jq (json cli processor). For Linux, you can simply run this one-liner:</p>
+
+<p><code><em>wget -O jq https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64;chmod +x ./jq;cp jq /usr/bin</em></code></p>
+
+<pre>
+
+&nbsp;</pre>
+
+<h2>Deployment</h2>
+
+<pre>
+<em><code>wget https://raw.githubusercontent.com/noobaa/noobaa-core/master/src/deploy/NVA_build/noobaa_deploy_k8s.sh; wget https://raw.githubusercontent.com/noobaa/noobaa-core/src/deploy/NVA_build/noobaa_core.yaml;chmod +x noobaa_deploy_k8s.sh
+</code></em></pre>
+
+<pre>
+<em><code>./noobaa_deploy_k8s.sh deploy -e &lt;youremail&gt; -n &lt;new namespace&gt; -f ./noobaa_core.yaml
+</code></em>
+</pre>
+Read more on NooBaa&#39;s git page <a href="https://github.com/noobaa/noobaa-core/blob/master/README.md">here</a>

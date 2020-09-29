@@ -1,0 +1,33 @@
+NooBaa is available in AWS marketplace as both Bring Your Own License (BYOL) and paid offers.<br />
+<br />
+NooBaa BYOL offer requires an activation key. Apply for activation key by using the following <a href="https://www.noobaa.com/download.html" target="_blank">link</a><br />
+<br />
+NooBaa paid offer requires an IAM role with&nbsp; AWSMarketplaceMeteringFullAccess policy and attached your EC2 an IAM role that will allow usage metering service.<br />
+<br />
+1) The&nbsp;AWSMarketplaceMeteringFullAccess policy looks like that. Simply add it to the user that launches the AMI:<br />
+<br />
+{<br />
+&nbsp; &nbsp; &quot;Version&quot;: &quot;2012-10-17&quot;,<br />
+&nbsp; &nbsp; &quot;Statement&quot;: [<br />
+&nbsp; &nbsp; &nbsp; &nbsp; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;Action&quot;: [<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;aws-marketplace:MeterUsage&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ],<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;Effect&quot;: &quot;Allow&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;Resource&quot;: &quot;*&quot;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; ]<br />
+}<br />
+2) Create a new IAM role and attach it to your EC2 instance<br />
+<br />
+<br />
+<br />
+<br />
+<img alt="" src="images/2905529_en/837326" style="width: 600px; height: 587px;" /><br />
+<br />
+<img alt="" src="images/2905529_en/837327" style="width: 600px; height: 669px;" /><br />
+<br />
+<br />
+<img alt="" src="images/2905529_en/837436" style="width: 600px; height: 365px;" /><br />
+<br />
+&nbsp;

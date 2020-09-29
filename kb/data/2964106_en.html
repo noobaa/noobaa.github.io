@@ -1,0 +1,26 @@
+Using Duplicity (http://duplicity.nongnu.org/) with NooBaa requires the following&nbsp;steps:<br />
+<br />
+<u><strong>Configure /etc/boto.</strong></u><u><strong>cfg</strong></u><br />
+Make sure you have the following lines.&nbsp;<br />
+<br />
+<em>[Credentials]<br />
+aws_access_key_id = &lt;NooBaa access key id&gt;<br />
+aws_secret_access_key = &lt;NooBaa secret access key&gt;<br />
+[Boto]<br />
+# If using a valid SSL certificate on NooBaa, set to True<br />
+is_secure = False</em><br />
+<br />
+<u><strong>Verify that you don&#39;t have any conflict with&nbsp; ~/.aws/credentials </strong></u><br />
+<br />
+~/.aws/credentials may contain [default] section that will take priority on boto.cfg.<br />
+In such a case, you better change the default to a named profile.<br />
+<br />
+<strong>Note</strong>: remember to change the applications that use&nbsp;~/.aws/credentials to use the newly named profile.&nbsp;<br />
+<br />
+<strong><u>Run</u></strong><br />
+<br />
+<em>duplicity&nbsp; .&nbsp; &quot;s3://&lt;NooBaa rest endpoint&gt;/&lt;target bucket&gt;&quot;</em><br />
+<br />
+When listing NooBaa bucket, you should see similar objects list<br />
+<br />
+<img alt="" src="images/2964106_en/913986" style="width: 600px; height: 170px;" />

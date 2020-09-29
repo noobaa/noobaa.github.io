@@ -1,0 +1,174 @@
+NooBaa&#39;s API provides bucket read/write counters and throughput.<br />
+A simple serverless function will expose this API to external calls. The following steps would help you to quickly create such function.<br />
+<br />
+1. Follow the article <a href="https://noobaa.desk.com/customer/portal/articles/2939400-create-your-own-serverless-function">create your own serverless function</a>&nbsp;and use the text below as the function content<br />
+<br />
+<em>/* sample event:&nbsp; &nbsp;<br />
+{<br />
+&quot;name&quot;: &quot;first.bucket&quot;,<br />
+&quot;since&quot;: 1527840000,<br />
+&quot;till&quot;: 1530655233<br />
+}<br />
+*/<br />
+<br />
+exports.handler = function(event, context, callback) {<br />
+context.rpc_client.bucket.export_bucket_bandwidth_usage(event)<br />
+&nbsp; &nbsp; &nbsp; &nbsp; .then(res =&gt; callback(null, JSON.stringify(res)))<br />
+&nbsp; &nbsp; &nbsp; &nbsp; .catch(err =&gt; callback(err));<br />
+};</em><br />
+<br />
+2. Save the function and use the Invoke tab to test the function with the following input&nbsp;<br />
+<br />
+{ &quot;name&quot;: &quot;first.bucket&quot;, &quot;since&quot;: 1527840000, &quot;till&quot;: 1530655233 }<br />
+<br />
+3. You should see a csv&nbsp;link. Use it in your browser and check the CSV<br />
+<br />
+You should see text in the following format<br />
+&nbsp;
+<div>&nbsp;</div>
+
+<div>&nbsp;</div>
+
+<div>
+<table border="0" cellpadding="0" cellspacing="0" width="452">
+	<colgroup>
+		<col span="4" width="87" />
+		<col width="104" />
+	</colgroup>
+	<tbody>
+		<tr height="21">
+			<td height="21" width="87">Date</td>
+			<td width="87">&nbsp;Read Count</td>
+			<td width="87">&nbsp;Bytes Read</td>
+			<td width="87">&nbsp;Write Count</td>
+			<td width="104">&nbsp;Bytes Written</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Fri Jan 05 2018 00:00:00 GMT-0800 (PST)</td>
+			<td align="right">0</td>
+			<td align="right">0</td>
+			<td align="right">12</td>
+			<td align="right">37978199</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Fri Jun 22 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">20</td>
+			<td align="right">1508360</td>
+			<td align="right">0</td>
+			<td align="right">0</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Mon Jun 11 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">0</td>
+			<td align="right">0</td>
+			<td align="right">1</td>
+			<td align="right">5387</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Mon Jun 25 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">24</td>
+			<td align="right">592570</td>
+			<td align="right">24</td>
+			<td align="right">592570</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Mon Mar 12 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">0</td>
+			<td align="right">0</td>
+			<td align="right">1</td>
+			<td align="right">206828</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Mon May 14 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">18</td>
+			<td align="right">328607</td>
+			<td align="right">34</td>
+			<td align="right">659100</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Thu Apr 19 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">4</td>
+			<td align="right">420424</td>
+			<td align="right">3</td>
+			<td align="right">316328</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Thu May 03 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">17</td>
+			<td align="right">323220</td>
+			<td align="right">17</td>
+			<td align="right">323220</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Thu May 10 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">4</td>
+			<td align="right">646440</td>
+			<td align="right">0</td>
+			<td align="right">0</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Thu May 31 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">0</td>
+			<td align="right">0</td>
+			<td align="right">1</td>
+			<td align="right">6658425</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Tue Jun 12 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">26</td>
+			<td align="right">59708736</td>
+			<td align="right">17</td>
+			<td align="right">3898690</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Tue Jun 26 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">80</td>
+			<td align="right">43036542</td>
+			<td align="right">135</td>
+			<td align="right">4899489701</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Tue May 08 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">18</td>
+			<td align="right">484830</td>
+			<td align="right">17</td>
+			<td align="right">323220</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Tue May 15 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">1</td>
+			<td align="right">5387</td>
+			<td align="right">0</td>
+			<td align="right">0</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Wed Apr 25 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">2</td>
+			<td align="right">270</td>
+			<td align="right">2</td>
+			<td align="right">270</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Wed Jun 06 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">2</td>
+			<td align="right">50924672</td>
+			<td align="right">9</td>
+			<td align="right">2897128</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Wed Jun 27 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">1</td>
+			<td align="right">5387</td>
+			<td align="right">0</td>
+			<td align="right">0</td>
+		</tr>
+		<tr height="21">
+			<td height="21">Wed May 02 2018 00:00:00 GMT-0700 (PDT)</td>
+			<td align="right">34</td>
+			<td align="right">565635</td>
+			<td align="right">67</td>
+			<td align="right">1069455</td>
+		</tr>
+	</tbody>
+</table>
+</div>

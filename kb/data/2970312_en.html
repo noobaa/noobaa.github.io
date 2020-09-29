@@ -1,0 +1,44 @@
+Starting from&nbsp; Veeam Backup &amp; Replication 9.5 Update 4, the product supports native S3 compatible storage.&nbsp;<br />
+Please follow the steps below to configure Veeam to use NooBaa<br />
+<br />
+1. Add a new scale-out repository. NooBaa bucket will be the capacity tier for this scale-out repository<br />
+<br />
+<img alt="" src="images/2970312_en/921313" style="width: 600px; height: 427px;" />&nbsp;<br />
+2. Click Next and add a performance tier<br />
+<br />
+<img alt="" src="images/2970312_en/921306" style="width: 600px; height: 423px;" /><br />
+3. Click Next and select placement policy<br />
+<br />
+<img alt="" src="images/2970312_en/921308" style="width: 600px; height: 421px;" /><br />
+<br />
+4. Check the checkbox of Extend scale-out backup repository capacity with object storage&nbsp; and&nbsp; click on the Add button<br />
+5. Name the new object storage repository<br />
+<br />
+<img alt="" src="images/2970312_en/921310" style="width: 600px; height: 425px;" /><br />
+<br />
+<br />
+6. In the account details provide NooBaa endpoint and add credentials. You can get this information <a href="http://noobaa.desk.com/customer/en/portal/articles/2852068-connect-an-application-">here</a><br />
+<br />
+<br />
+<img alt="" src="images/2970312_en/921298" style="width: 600px; height: 427px;" /><br />
+7. Select a bucket from NooBaa, click on Folder Browse button<br />
+<img alt="" src="images/2970312_en/921299" style="width: 600px; height: 424px;" /><br />
+<br />
+8.&nbsp; Select an exiting or a new folder.<br />
+<img alt="" src="images/2970312_en/921300" style="width: 600px; height: 777px;" /><br />
+<br />
+<img alt="" src="images/2970312_en/921301" style="width: 600px; height: 423px;" /><br />
+9. Click Next and review the summary<br />
+<img alt="" src="images/2970312_en/921302" style="width: 600px; height: 431px;" /><br />
+<br />
+10. Click on Finish button, and on the Next button in the capacity tier window and review the scale-out summary.<br />
+<br />
+<img alt="" src="images/2970312_en/921314" style="width: 600px; height: 423px;" /><br />
+<br />
+You are done. Now you can simply use the scale-out repository in your backup job.&nbsp;<br />
+<br />
+<img alt="" src="images/2970312_en/921315" style="width: 600px; height: 424px;" /><br />
+<br />
+*NOTE:&nbsp; With Capacity Tier, a background&nbsp; offloading job is running every 4 hours.&nbsp;The offload of backup files occurs for backup jobs when the backups are deemed inactive (no longer part of the active chain). This is brought on by a new full file in the backup chain. The link below covers this process in a little more detail.&nbsp;<br />
+<br />
+<a href="https://helpcenter.veeam.com/docs/backup/vsphere/capacity_tier_inactive_backup_chain.html?ver=95u4">https://helpcenter.veeam.com/docs/backup/vsphere/capacity_tier_inactive_backup_chain.html?ver=95u4</a><br />

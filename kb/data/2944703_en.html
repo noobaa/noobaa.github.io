@@ -1,0 +1,26 @@
+Legacy applications may require file protocol access to NooBaa storage.&nbsp;<br />
+<br />
+In such case, commercial products like SME or Avere are valid solutions.&nbsp;<br />
+<br />
+Another valid option is the open source s3fs-fuse.<br />
+<br />
+File System in Userspace (FUSE), is a software interface for Linux systems, which allows users to create their own file system structure in user space while letting the FUSE module to handle communication with the Kernel.<br />
+By combining NooBaa with S3FS-FUSE, Unix-based systems are able to access S3 buckets via a local filesystem path (e.g. /mnt/noobaa/demo-bucket) using common system calls, allowing FUSE to address the translation.<br />
+<br />
+<u><strong>Installation</strong></u><br />
+<br />
+1. Follow the installation in this link <a href="https://github.com/s3fs-fuse/s3fs-fuse#installation">https://github.com/s3fs-fuse/s3fs-fuse#installation</a><br />
+2. If a binary is not available, the following instructions will quickly build it for you&nbsp; <a href="https://github.com/s3fs-fuse/s3fs-fuse#compilation">https://github.com/s3fs-fuse/s3fs-fuse#compilation</a><br />
+<br />
+<u><strong>Mounting NooBaa Buckets using S3FS-FUSE</strong></u><br />
+<br />
+1. Create S3FS-FUSE&rsquo;s password file. Use NooBaa&#39;s Access and Secret key from&nbsp;<a href="https://noobaa.desk.com/customer/portal/articles/2852068-connect-an-application-">connecting appliaction</a>. Run the commands:<br />
+<strong><em>echo &lt;AccessKey&gt;:&lt;SecretKey&gt; &gt; /etc/fuse.noobaa.credentials</em><br />
+<em>chmod 600 /etc/fuse.noobaa.credentials</em></strong><br />
+<em>2.&nbsp;</em>Create the mount point by running the following comands, replace &lt;noobaa_endpoint&gt; with your actual endpoint:<br />
+<strong><em>mkdir /mnt/noobaa/files_bucket<br />
+Mount the bucket to the mount-point<br />
+/usr/local/bin/s3fs first.bucket /mnt/noobaa/files_bucket -o passwd_file=/etc/fuse.noobaa.credentials -o use_path_request_style -o url=http://&lt;noobaa_endpoint&gt;/ -o sigv2 -o parallel_count=8</em></strong><br />
+<br />
+Congratulations! You are now able to access first.bucket at /mnt/noobaa/files_bucket<br />
+&nbsp;

@@ -1,0 +1,23 @@
+<p dir="ltr"><span id="docs-internal-guid-769c2192-a73f-3bd1-2711-96076d5e7760"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Nodes pool is a group of storage nodes that can be used for a data placement policy within NooBaa&#39;s buckets. All assigned storage nodes in each pool will be used for capacity aggregation. </span></span></p>
+
+<p dir="ltr"><span id="docs-internal-guid-769c2192-a73f-3bd1-2711-96076d5e7760"><span style="fbackground-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Steps:</span></span></p>
+
+<ol dir="ltr">
+	<li>
+	<p><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Go to </span><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Resources &gt; Node Pools &gt; Create Pool </span></span></p>
+	</li>
+	<li>
+	<p><span id="docs-internal-guid-769c2192-a73f-3bd1-2711-96076d5e7760"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Type a valid pool name according to the name constraints</span></span></span></span></p>
+	</li>
+	<li><span id="docs-internal-guid-769c2192-a73f-3bd1-2711-96076d5e7760"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Assign nodes to the new pool by&nbsp;</span></span><span style="background-color: transparent; white-space: pre-wrap;">moving them from other pools. </span></li>
+</ol>
+
+<ul dir="ltr">
+	<li><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">All currently used nodes will have to go through a migration process.</span></span></li>
+	<li><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Each pool must have at least 3 nodes (for data replicas). </span></span></li>
+	<li>
+	<p><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Make sure that the nodes you choose to move from another pool will not leave that pool with less than 3 nodes. If it does, that pool could no longer be available for data placement.</span><br />
+	<br />
+	<img alt="" src="images/2852671_en/803325" /></p>
+	</li>
+</ul>

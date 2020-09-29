@@ -1,0 +1,19 @@
+NooBaa can work seamlessly with any AWS SDK.&nbsp;<br />
+<br />
+There are three main points you should take into account:<br />
+<br />
+1. Access key and secret key - You will need to replace these values with NooBaa&#39;s access key and secret key. Check the following article for more information&nbsp;<a href="https://noobaa.desk.com/customer/portal/articles/2852068-connect-an-application-">https://noobaa.desk.com/customer/portal/articles/2852068-connect-an-application-</a><br />
+2. Endpoint - in many cases, there is no configuration of an endpoint in your application, as the default is AWS endpoint. With NooBaa, you must configure this parameter. The endpoint of your NooBaa system appears under the main page of NooBaa web management console. More information available here&nbsp;<a href="https://noobaa.desk.com/customer/portal/articles/2852068-connect-an-application-">https://noobaa.desk.com/customer/portal/articles/2852068-connect-an-application-</a><br />
+3. Path Style - Connection parameter that must be enabled, unless you are planning to use virtual hosting. More information on virtual hosting can be found here&nbsp;<a href="https://noobaa.desk.com/customer/portal/articles/2933428-virtual-host-vs-path-style">https://noobaa.desk.com/customer/portal/articles/2933428-virtual-host-vs-path-style</a><br />
+<br />
+Example for Java code with NooBaa can be found here (based on&nbsp;https://github.com/aws/aws-sdk-java/tree/master/src/samples/AmazonS3 )<br />
+<br />
+This sample requires the AWS SDK for Java. For more information on the AWS SDK for Java, see&nbsp;<a href="http://aws.amazon.com/sdkforjava" rel="nofollow">http://aws.amazon.com/sdkforjava</a>.<br />
+<br />
+<u><strong>Running the Sample</strong></u>
+<p>The basic steps for running the Amazon S3 sample are:</p>
+
+<p>1. Open S3Sample.java and replace&nbsp;&nbsp;&lt;ACCESS KEY&gt; &lt;SECRET KEY&gt; and &lt;ENDPOINT&gt; with your connection details.<br />
+2. Download build.xml&nbsp;from AWS github&nbsp;https://raw.githubusercontent.com/aws/aws-sdk-java/master/src/samples/AmazonS3/build.xml<br />
+3. run the command: ant<br />
+&nbsp;</p>

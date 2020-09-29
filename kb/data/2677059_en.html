@@ -1,0 +1,64 @@
+<h1><strong><span style="font-size:14px;">General Data Placement Process Background</span></strong><br />
+<span style="font-size:14px;">Every object that is written to NooBaa goes through a digestion process which includes the following steps:</span></h1>
+
+<ul>
+	<li><span style="font-size:14px;">Fragmentation</span></li>
+	<li><span style="font-size:14px;">Deduplication</span></li>
+	<li><span style="font-size:14px;">Compression</span></li>
+	<li><span style="font-size:14px;">Encryption</span></li>
+</ul>
+
+<p><br />
+<span style="font-size:14px;">The output of this process is a set of encrypted chunks.<br />
+<br />
+Each chunk&nbsp;is stored in a manner deemed safe by the system. Chunks will therefore be stored in one of the following ways:<br />
+<br />
+A minimum of three copies of the same chunk on storage nodes, where data redundancy is achieved by storing the same chunk in multiple locations.<br />
+<br />
+A single copy of the chunk in a cloud pool, where data redundancy is achieved based on the cloud vendor&#39;s internal redundancy.</span><br />
+&nbsp;</p>
+
+<p><span style="font-size:16px;"><strong>Spread Data Placement</strong></span><br />
+<span style="font-size:14px;"><strong>When to use it?</strong></span></p>
+
+<ul>
+	<li><span style="font-size:14px;">When the system contains multiple pools. </span></li>
+	<li><span style="font-size:14px;"><span style="font-size:14px;">For buckets&nbsp;that contain data&nbsp;not requiring full site failure redundancy. </span></span></li>
+</ul>
+
+<p><br />
+<span style="font-size:14px;"><strong>Under the hood</strong></span></p>
+
+<ul>
+	<li><span style="font-size: 14px;">The system will create three copies across the underlying pools for each of the chunks.</span></li>
+	<li><span style="font-size: 14px;">There is no guaranteed chunk distribution between the pools.</span></li>
+	<li><span style="font-size: 14px;">The client will receive an acknowledge once redundant copies have been created.</span></li>
+</ul>
+
+<p><span style="font-size:14px;"><img alt="" src="images/2677059_en/729383" style="height: 388px; width: 100%;" /></span></p>
+
+<p style="text-align: center;"><span style="text-align: center;">[Spread Policy Diagram]</span></p>
+
+<p><br />
+<span style="font-size:14px;">&nbsp;</span><br />
+<span style="font-size:16px;"><strong>Mirror Data Placement</strong></span><br />
+<span style="font-size:14px;"><strong>When to use it?</strong></span></p>
+
+<ul>
+	<li><span style="font-size:14px;">When the system contains multiple pools. </span></li>
+	<li><span style="font-size:14px;"><span style="font-size:14px;">For bucket, that retains data requiring full site failure redundancy.</span></span></li>
+</ul>
+
+<p><br />
+<span style="font-size:14px;"><strong>Under the hood</strong></span></p>
+
+<ul>
+	<li><span style="font-size: 14px;">The system will create three copies on each of the underlying pools for each of the chunks.</span></li>
+	<li><span style="font-size: 14px;"><span style="font-size:14px;">Data will be asynchronously replicated between pools. </span></span></li>
+	<li><span style="font-size: 14px;"><span style="font-size:14px;"><span style="font-size:14px;">It is guaranteed that each of the chunks will be stored redundantly on each of the underlying pools. </span></span></span></li>
+</ul>
+
+<p style="text-align: center;"><br />
+<span style="font-size:14px;"><img alt="" src="images/2677059_en/729062" style="width: 100%; height: 388px;" /></span><br />
+<span style="text-align: center;">[Mirror Policy Diagram]</span><br />
+<span style="font-size:14px;">&nbsp;</span></p>

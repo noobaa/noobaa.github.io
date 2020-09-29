@@ -1,0 +1,39 @@
+<div dir="ltr"><span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><span style="color: rgb(55, 55, 55); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Using virtual namespace feature, users can instantly connect to their existing data repositories such as on AWS, Azure, or any other object storage and create a single unified view of all the data via a unified AWS S3/Azure Blob API.</span></span></span></div>
+
+<div dir="ltr"><br />
+<span style="font-size:14px;"><span style="font-family:arial,helvetica,sans-serif;"><span id="docs-internal-guid-8e8962cc-87c1-b517-88dc-7bb2bf8700b9"><span style="color: rgb(55, 55, 55); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">It means that you can easily run the same workload with the same data repository, no matter where it is while saving the migration project and cost.<br />
+<br />
+The data is available immediately after the configuration and doesn&#39;t need any synchronization.<br />
+<br />
+Below is an example of a namespace that aggregates data from AWS S3 and Azure, and by default will write to Azure. </span></span><br />
+<br />
+Please check this Video for more information on <a href="#Video headline">NooBaa namespace feature</a><br />
+<br />
+<strong>Steps:</strong><br />
+1. Start with adding connections to your existing cloud storage accounts.<br />
+Navigate to <strong>Accounts -&gt; My Connections</strong> and add connections.&nbsp;</span></span><br />
+<br />
+<span style="font-size:12px;"><img alt="" src="images/2921824_en/855464" style="width: 600px; height: 363px;" /><br />
+<br />
+2. Navigate to<strong> resources&nbsp;-&gt; namespace resource</strong> and click on &quot;Create Namespace Resource&quot; button in order create a new&nbsp;namespace resource, which is an AWS&nbsp;S3 bucket or blob container native storage.<br />
+<br />
+<img alt="" src="images/2921824_en/855465" style="width: 600px; height: 365px;" /></span></div>
+
+<div><br />
+This is an example of two resources, one is AWS and the second is on Azure.&nbsp;<br />
+<br />
+<img alt="" src="images/2921824_en/855466" style="width: 599px; height: 361px;" /><br />
+<br />
+3. Now create a namespace bucket, that will link these two accounts into a single bucket in NooBaa.&nbsp;<br />
+Navigate to <strong>Buckets -&gt; Namespace Buckets</strong> and click on &quot;Create Namespace Bucket&quot; button in order to create one.&nbsp;<br />
+<br />
+<img alt="" src="images/2921824_en/855468" style="width: 600px; height: 365px;" /><br />
+<br />
+Select the relevant buckets you want to point to (no sync or data migration will happen). Also, select the target for the write operation for this bucket.&nbsp;<br />
+<br />
+<img alt="" src="images/2921824_en/855469" style="width: 601px; height: 362px;" /><br />
+<br />
+Every application that will connect to NooBaa, to bucket aws-to-azure will be able to read an object from both locations, and while writing new data, it will be written to the default target, which is Azure in this case.<br />
+<br />
+<a id="Video headline" name="Video headline">AWS to Azure- simplified by NooBaa:&nbsp;</a><br />
+<iframe allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/wJaZ5-a3sn0" width="560"></iframe> &nbsp;</div>

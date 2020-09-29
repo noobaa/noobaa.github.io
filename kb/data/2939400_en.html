@@ -1,0 +1,89 @@
+Serverless functions can be used for two main tasks:<br />
+<br />
+1. Create your own data flow for anonymization, tiering, migration, analytics, etc<br />
+2. Automate NooBaa management activities for self-service&nbsp;such as account creation, granting permissions, etc.<br />
+<br />
+Creating a new function is easy.&nbsp;<br />
+<br />
+Navigate to the functions window<br />
+<br />
+<img alt="Create serverless function" src="images/2939400_en/877199" style="width: 600px; height: 146px;" /><br />
+<br />
+Type the function name and description<br />
+<br />
+<img alt="" src="images/2939400_en/877203" style="width: 600px; height: 534px;" /><br />
+<br />
+Write your&nbsp;code and provide the function name to execute<br />
+<br />
+<br />
+<br />
+<img alt="" src="images/2939400_en/877204" style="width: 600px; height: 535px;" /><br />
+<br />
+Set timeout and memory, we recommend leaving the default values.<br />
+<br />
+<img alt="" src="images/2939400_en/877205" style="width: 600px; height: 531px;" /><br />
+<br />
+Done. The function is ready. We just need to test it.<br />
+<br />
+<img alt="" src="images/2939400_en/877206" style="width: 600px; height: 169px;" /><br />
+<br />
+Open the function and click on Invoke tab<br />
+<br />
+<img alt="" src="images/2939400_en/877207" style="width: 600px; height: 340px;" /><br />
+<br />
+Provide the parameters. Please note that when triggered from a bucket event, the trigger will send the arguments as an array of objects in the following format:<br />
+<br />
+<br />
+<em>&nbsp;{<br />
+&nbsp; &quot;Records&quot;: [{<br />
+&nbsp; &nbsp; &quot;s3&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &quot;bucket&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;name&quot;: &quot;<strong>BUCKETNAME</strong>&quot;<br />
+&nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; &quot;object&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;key&quot;: &quot;<strong>OBJECTNAME</strong>&quot;<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; }<br />
+&nbsp; }]<br />
+}</em><br />
+<br />
+<img alt="" src="images/2939400_en/877208" style="width: 600px; height: 361px;" /><br />
+<br />
+If everything is fine, you should see the green popup on the left bottom side.<br />
+<br />
+Now connect the function to a bucket. Navigate to the target bucket, click on Triggers tab and provide the new function details.&nbsp;<br />
+<br />
+<img alt="" src="images/2939400_en/877209" style="width: 600px; height: 400px;" /><br />
+<br />
+Example of a function that accesses the object metadata can be found below:<br />
+<br />
+<span style="font-family:courier new,courier,monospace;"><em>/* Copyright (C) 2016 NooBaa */<br />
+&#39;use strict&#39;;<br />
+<br />
+/* sample event - trigger structure:<br />
+{<br />
+&nbsp; &nbsp; &quot;Records&quot;: [{<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &quot;s3&quot;: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;bucket&quot;: { &quot;name&quot;: &quot;first.bucket&quot; },<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &quot;object&quot;: { &quot;key&quot;: &quot;Apple.jpg&quot; }<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; }]<br />
+}<br />
+*/<br />
+<br />
+const AWS = require(&#39;aws-sdk&#39;);<br />
+<br />
+exports.handler = async function(event, context, callback) {<br />
+&nbsp; &nbsp; try {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const s3 = new AWS.S3();<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const bucket = event.Records[0].s3.bucket.name;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const key = event.Records[0].s3.object.key;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const r = await s3.headObject({<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bucket: bucket,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Key: key,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }).promise();<br />
+&nbsp; &nbsp; &nbsp; &nbsp; return callback(null, JSON.stringify(r));<br />
+&nbsp; &nbsp; } catch (err) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; return callback(err);<br />
+&nbsp; &nbsp; }<br />
+};</em></span>

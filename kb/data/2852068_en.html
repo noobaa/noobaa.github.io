@@ -1,0 +1,41 @@
+<div dir="ltr">Starting from NooBaa V2, you can connect your application right after system activation.&nbsp;<br />
+<br />
+For earlier versions, you must follow the guidelines&nbsp;for&nbsp;<a href="https://noobaa.desk.com/customer/portal/articles/2848546-first-mandatory-step---adding-storage-resources" onclick="window.open(this.href, '', 'resizable=no,status=no,location=no,toolbar=no,menubar=no,fullscreen=no,scrollbars=no,dependent=no'); return false;">introducing storage resource</a>&nbsp;first.<br />
+&nbsp;</div>
+
+<div dir="ltr"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">A native access via AWS S3 compatible application is a REST based protocol commonly used by AWS S3 compatible clients (e.g. CloudBerry). By connecting an application to NooBaa you can start writing and reading data without accessing the management UI. </span></div>
+
+<div>&nbsp;</div>
+
+<div dir="ltr"><span id="docs-internal-guid-6dba3256-a221-d8a6-ae10-5f77ea467259"><span style="font-size: 11pt; font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Steps:</span></span></div>
+
+<ol>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-6dba3256-a221-d8a6-ae10-5f77ea467259"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Go to</span><span style="font-size: 11pt; background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"> Overview &gt; Connect application </span><br class="kix-line-break" />
+	<span style="font-size: 11pt; background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;"><img height="63" src="https://lh3.googleusercontent.com/uXFKcLCPpfajK9dgb8tdHgSEY06Gr2pEC4AvWbgL2unyw62EQCHjEtUQjsqjquA1b1yoTvJfbUJhRzWA3H7X73EWm9JloWC_yL86-xXScuLJc4MLTRFnvrA-3E86u6w1N6Fnj534" width="258" /></span></span></div>
+	</li>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-6dba3256-a221-d8a6-ae10-5f77ea467259"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Select the type of connection your application uses, Native access for S3 client.</span></span></div>
+	</li>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-6dba3256-a221-d8a6-ae10-5f77ea467259"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Choose an account you want to connect with (each account with S3 access permission has different keys set and can be used for application connection).</span></span><br />
+	<br />
+	<img alt="" src="images/2852068_en/803318" style="width: 80%; " /></div>
+	</li>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-6dba3256-a221-d8a6-ae10-5f77ea467259"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Open the application you wish to connect and click on </span><span style="font-size: 11pt; background-color: transparent; font-style: italic; vertical-align: baseline; white-space: pre-wrap;">enter new account </span><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">(note that each application has a different term for this action)</span></span></div>
+	</li>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-6dba3256-a221-d8a6-ae10-5f77ea467259"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">C<span id="docs-internal-guid-6dba3256-a221-d8a6-ae10-5f77ea467259"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">hoose Storage type as S3 compatible storage and c</span></span></span></span><span style="font-size: 14.6667px; white-space: pre-wrap;">opy the REST endpoint from the UI. Paste it to REST endpoint field in your application</span><br />
+	<br />
+	<span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><img alt="" src="images/2852068_en/803319" style="width: 719px; height: 389px;" /></span></span></div>
+	</li>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-6dba3256-a221-d8a6-ae10-5f77ea467259"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Copy The Access Key and secret key and paste it into the access key field in your application<br />
+	<img alt="" src="images/2852068_en/803323" /></span></span></div>
+	</li>
+	<li dir="ltr">
+	<div dir="ltr"><span id="docs-internal-guid-6dba3256-a221-d8a6-ae10-5f77ea467259"><span style="font-size: 11pt; background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Apply the changes in your S3 application and test the connection by uploading a file to a bucket.</span></span></div>
+	</li>
+</ol>
+<span style="font-size:14px;"><span id="docs-internal-guid-6dba3256-a221-d8a6-ae10-5f77ea467259"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">All files will appear in </span><span style="font-family: Arial; color: rgb(0, 0, 0); background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Buckets &gt; Selected Bucket &gt; files list</span></span></span>

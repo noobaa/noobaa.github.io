@@ -1,0 +1,42 @@
+<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Multiple applications or users may require different permissions. In such case, a new account could be used to login to the management console, connect an application or both. </span></span></p>
+
+<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">To create a new account:</span></span></p>
+
+<ol>
+	<li dir="ltr">
+	<p dir="ltr"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Go to </span><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Accounts &gt; Create Account</span></span><br />
+	<img alt="" src="images/2852696_en/896451" /></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">In the Account Details step choose the type and purpose of this account:</span><br class="kix-line-break" />
+	<span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">- If this account will be used for login to NooBaa management console as a system admin leave login access enabled and type the account email address.<br />
+	<img alt="" src="images/2852696_en/896443" style="width: 719px; height: 385px;" /></span><br />
+	<br class="kix-line-break" />
+	<span style="fbackground-color: transparent; vertical-align: baseline; white-space: pre-wrap;">- If this account will be used for <strong>S3 client connection</strong> <strong>only</strong>, there is no need to generate admin login password, Mark &quot;Login Access&quot; as disabled and name this account.</span><br class="kix-line-break" />
+	<span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><img height="552" src="https://lh5.googleusercontent.com/FtRZtao1FSVKprqE5mBGb_Hfzkm6JzbHOr4LqsbBI6bWQPHNZ_SY9dYZ-4lwS2W8GuFKFfAnnhAfX6E0dMoxTMwdpZB16_14vhoIl_21th4001gppZW7wEoiK7uE7ljdW6sSfu0b" width="616" /></span></span></p>
+	</li>
+	<li dir="ltr">
+	<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">Click &ldquo;Next&rdquo; to move to S3 access step</span></span></p>
+	</li>
+</ol>
+
+<p dir="ltr"><span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">You can choose to enable/ disable this account S3 access, Granting S3 access will allow this account to connect S3 client applications by generating security credentials (key set).</span></span></p>
+
+<p dir="ltr"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">** Note that if you disabled the login access you cannot disable this option as well. </span></span></p>
+
+<div dir="ltr"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span>After enabling S3 Access you will need to set a default writing resource and the account bucket permissions:</span></span></span></div>
+
+<div><span><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">S3 default placement:</span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"> Each new bucket created by this account via an S3 application will have a data placement policy containing this resource. Selected resources as default cannot be deleted from the UI. ​</span></span></div>
+
+<div dir="ltr"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">To choose the default resource click on the dropdown and choose one of the system resources</span></span></span></span></span></span></span></span></div>
+
+<div dir="ltr"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">&nbsp;<img alt="" src="images/2852696_en/896447" /></span></span></span></span></span></span></span></span></div>
+
+<p dir="ltr"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; font-weight: 700; vertical-align: baseline; white-space: pre-wrap;">Bucket permissions: </span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">&nbsp;Choose which buckets this account can access to (and make changes) via an S3 application. by choosing all current buckets, permissions will be granted to all existing buckets in the system.<br />
+<img alt="" src="images/2852696_en/896449" style="height: 377px; width: 600px;" /></span></span></span></span></span></span></span></span></span></span></p>
+
+<p dir="ltr"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">If you wish to grant full access to all current and future created buckets, set &quot;Full access to current and future buckets&quot; as Enabled.<br />
+<img alt="" src="images/2852696_en/896450" style="width: 600px; height: 115px;" /></span></span></span></span></span></span></span></span></span></span></span><br />
+<br />
+<span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span><span><span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span><span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;"><span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">5. Click on &ldquo;Create&rdquo; ​<br />
+<span id="docs-internal-guid-1d8c7db5-a7b9-b710-cf84-99b0b8e2ae92"><span style="background-color: transparent; vertical-align: baseline; white-space: pre-wrap;">6. In the creation message, you will receive all the account details, copy and send the information to the account owner or connect an application (according to the account type).</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p>

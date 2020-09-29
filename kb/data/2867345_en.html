@@ -1,0 +1,41 @@
+While adding a new connection to a cloud resource, you may get error messages.&nbsp;<br />
+<br />
+This article will quickly help you overcome such errors
+<ul>
+	<li class="editor-content column" data-bind="
+    validationOptions: { insertMessages: insertValMessages },
+    template: { nodes: $componentTemplateNodes, data: $parent }
+"><validation-message params="field: form.identity"></validation-message><strong>Credentials </strong><strong>do</strong><strong>&nbsp;not match </strong></li>
+</ul>
+Please double check the Access Key and Secret Key fields.&nbsp;<br />
+<br />
+<img alt="" src="images/2867345_en/812874" style="width: 600px; height: 526px;" /><br />
+&nbsp;
+<ul>
+	<li><strong>Please enter a valid endpoint</strong></li>
+</ul>
+Please check the endpoint field and make sure it&#39;s the right endpoint without and typos like in the example below.<br />
+<br />
+<img alt="" src="images/2867345_en/812871" style="width: 600px; height: 531px;" />
+<ul>
+	<li><strong>Something went wrong</strong></li>
+</ul>
+This error can appear in the following case:
+
+<ol>
+	<li>&nbsp;<strong>RequestTimeTooSkewed</strong>: The difference between the request time and the current time is too large. In such case, simply change the NooBaa VM time. <a href="https://noobaa.desk.com/customer/portal/articles/2866018-set-network-time-protocol-ntp-">Check this article about NTP settings.</a></li>
+	<li><strong>Access Denied</strong> - In such case, verify that the endpoint is a valid clean default endpoint, without the bucket name or any DNS name for your bucket&nbsp;</li>
+</ol>
+<strong><img alt="" src="images/2867345_en/812881" style="width: 600px; height: 529px;" /></strong><br />
+<br />
+<strong>Resource</strong><strong> has Read/Write problems</strong><br />
+<br />
+May happen in the following cases:<br />
+<br />
+1. Network connectivity - You may experience network disconnections. Try again after few minutes.<br />
+2. Azure Stack resources - In case NooBaa core time is synchronized with the Azure Stack time. The best solution, in this case, is using the same NTP server for Azure Stack and NooBaa core.&nbsp; &nbsp;<br />
+3. Azure resources - NooBaa core time is not set correctly. Either set it manually or use NTP.&nbsp;<br />
+4. S3 compatible - sometimes the target resource is not compatible with AWS. Please contact support@noobaa.com and we will try to solve it for you.&nbsp;<br />
+<br />
+&nbsp;
+<div><img alt="" src="images/2867345_en/865075" style="width: 506px; height: 264px;" /></div>
