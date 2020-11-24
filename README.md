@@ -4,6 +4,14 @@
 
 ----
 
+### ⚠️ WARNING - WORK IN PROGRESS
+
+#### This project is still not complete ...
+
+Please refer to the current docs location in [noobaa-core](https://github.com/noobaa/noobaa-core) and [noobaa-operator](https://github.com/noobaa/noobaa-operator) repos.
+
+----
+
 NooBaa is a highly customizable and dynamic data gateway for objects, providing data services such as caching, tiering, mirroring, dedup, encryption, compression,  over any storage resource including S3, GCS, Azure Blob, Filesystems, etc.
 
 NooBaa simplifies data for admins by connecting to any of the storage silos from private or public clouds, and providing a single scalable data services, using the same S3 API and management tools. NooBaa allows full control over data placement, letting you place data based on security, strategy and cost considerations, per user/application.
