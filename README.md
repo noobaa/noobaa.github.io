@@ -40,10 +40,10 @@ NooBaa simplifies data for admins by connecting to any of the storage silos from
 
 ## Community
 
-- [Getting help]()
-- [Email group noobaa@googlegroups.com](https://groups.google.com/g/noobaa)
-- [Slack channel](https://www.noobaa.io/community)
-- [Youtube community meeting recordings]()
+- [Slack - channel](https://www.noobaa.io/community)
+- [Github - discussions](https://github.com/noobaa/noobaa-core/discussions)
+- [Email - google group](https://groups.google.com/g/noobaa)
+- [Youtube - community meeting recordings](https://www.youtube.com/playlist?list=PLsawh7cxjeFDiUsuOGncF_KZImQCgj5U-)
 
 ## Developers
 
