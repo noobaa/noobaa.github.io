@@ -3,6 +3,7 @@
 <img src="noobaa_logo.png" width="200" />
 
 ----
+# NooBaa Docs
 
 ### ⚠️ WARNING - WORK IN PROGRESS
 
