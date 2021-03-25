@@ -10,7 +10,7 @@ NooBaa is a highly customizable and dynamic data gateway for objects, providing 
 ## Getting Started
 
 - [Getting started with noobaa-operator CLI](noobaa-operator-cli.md) 
-- [Getting started with noobaa-core standalone](noobaa-core-cli.md)
+- [Getting started with noobaa-core standalone](noobaa-core-standalone.md)
 - [Getting started with noobaa-core nsfs gateway](noobaa-core-nsfs.md)
 
 ## User Guide
