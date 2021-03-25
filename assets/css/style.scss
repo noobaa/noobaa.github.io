@@ -8,6 +8,7 @@ $conifer: $brand !default;
 @import "{{ site.theme }}";
 
 body {
+  background: $body-background;
   line-height: 1.7;
 }
 
