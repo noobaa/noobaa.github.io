@@ -1,6 +1,6 @@
-# NooBaa CLI
+# NooBaa Operator CLI
 
-The `noobaa` command line tool is build from the noobaa-operator repo as the operator and the CLI share a lot of code:
+The `noobaa` command line tool is built from the noobaa-operator repo as the operator and the CLI share a lot of code:
 
 - [noobaa-operator on github](https://github.com/noobaa/noobaa-operator)
 - [Releases page](https://github.com/noobaa/noobaa-operator/releases)
@@ -18,7 +18,7 @@ chmod +x noobaa-$OS-$VERSION
 mv noobaa-$OS-$VERSION /usr/local/bin/noobaa
 ```
 
-## Install latest with Mac Homebrew:
+## Install latest with Homebrew (Mac/Linux):
 
 ```bash
 brew install noobaa/noobaa/noobaa
@@ -27,7 +27,7 @@ brew install noobaa/noobaa/noobaa
 ## Check your installation
 
 - Help: `noobaa help`
-- kubeconfig: - same as kubectl - The CLI operates on the current context from kubeconfig which can be changed with `export KUBECONFIG=/path/to/custom/kubeconfig` or use the --kubeconfig and --namespace flags.
+- kubeconfig: - same as kubectl - The CLI operates on the current context from kubeconfig which can be changed with `export KUBECONFIG=/path/to/custom/kubeconfig` or use the `--kubeconfig` and `--namespace` flags.
 - minikube: use `noobaa install --mini` in order to allocate less resources.
 - Uninstalling: `noobaa uninstall`
 
