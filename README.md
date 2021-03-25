@@ -1,10 +1,8 @@
-# NooBaa Docs
-
 <div id="top" />
 <link rel="shortcut icon" type="image/x-icon" href="noobaa_icon.png">
 <img src="noobaa_logo.png" width="200" style="float:right" />
- 
- 
+
+# NooBaa Docs
 
 **⚠️ WORK IN PROGRESS**
 Please refer to the current docs location in [noobaa-core wiki](https://github.com/noobaa/noobaa-core/wiki) and [noobaa-operator](https://github.com/noobaa/noobaa-operator/tree/master/doc) repos.
