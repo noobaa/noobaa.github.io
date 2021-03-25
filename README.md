@@ -19,10 +19,12 @@ NooBaa is a highly customizable and dynamic data gateway for objects, providing 
 - [noobaa status](noobaa-status.md) - Checking the operator and system status
 - [Using the s3 service](noobaa-s3-service.md)
 
+
 - Configuring classes using the operator:
   - [BucketClass](noobaa-bucket-class.md) - Configure policies to apply to a class of buckets.
   - [BackingStore](noobaa-backing-store.md) - Configure cloud or pv storage used in classes as a chunk-storage - aka "data-shredder".
   - [NamespaceStore](noobaa-namespace-store.md) - Configure cloud or pv storage used in classes for transparent data access.
+
 
 - Creating buckets using the operator:
   - [OBC](noobaa-obc.md) - Create buckets and access with ObjectBucketClaims
