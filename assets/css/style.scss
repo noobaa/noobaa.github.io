@@ -2,8 +2,8 @@
 ---
 
 $brand: #aa759f;
-$header: $brand !default;
-$conifer: $brand !default;
+$header: $brand;
+$conifer: $brand;
 
 @import "{{ site.theme }}";
 
@@ -31,5 +31,13 @@ th {
 
 hr {
   border-bottom: 1px dashed $brand;
+  color: $brand;
+}
+
+header {
+  border-bottom: 1px dashed $brand;
+}
+
+header h1 {
   color: $brand;
 }
