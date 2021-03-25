@@ -1,8 +1,9 @@
 ---
 ---
 
-$header: #aa759f !default;
-$conifer: #aa759f !default;
+$brand: #aa759f
+$header: $brand !default;
+$conifer: $brand !default;
 
 @import "{{ site.theme }}";
 
@@ -16,4 +17,17 @@ li {
 
 ul li {
   list-style-image: initial;
+}
+
+pre {
+  color: $brand;
+}
+
+th {
+  border-bottom: 1px dashed $brand;
+}
+
+hr {
+  border-bottom: 1px dashed $brand;
+  color: $brand;
 }
