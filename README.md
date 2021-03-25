@@ -17,22 +17,22 @@ The goal is to simplify data flows for admins by connecting to any of the storag
 
 ## User Guide
 
-Basic Usage:
+#### Basic Usage:
 - [noobaa install](noobaa-install.md) - Installing the operator and system on kubernetes
 - [noobaa status](noobaa-status.md) - Checking the operator and system status
 - [Using the s3 service](noobaa-s3-service.md)
 
-Configuring classes using the operator:
+#### Configuring types of buckets:
 - [BucketClass](noobaa-bucket-class.md) - Configure policies to apply to a class of buckets.
 - [BackingStore](noobaa-backing-store.md) - Configure cloud or pv storage used in classes as a chunk-storage - aka "data-shredder".
 - [NamespaceStore](noobaa-namespace-store.md) - Configure cloud or pv storage used in classes for transparent data access.
 
-Creating buckets using the operator:
+#### Creating buckets:
 - [OBC](noobaa-obc.md) - Create buckets and access with ObjectBucketClaims
 - [COSI](noobaa-cosi.md) - Create buckets and access with Kubernetes-COSI (pre-alpha)
+- [S3-createBucket](noobaa-s3-create-bucket.md)
 
-## Advanced Documentation
-
+#### Advanced Usage:
 - [NooBaa CRD](noobaa-crd.md) - The basic CRD to deploy a NooBaa system.
 - [Using the mgmt service](noobaa-mgmt-service.md)
 - [S3 compatibility](noobaa-s3-compat.md)
@@ -40,9 +40,18 @@ Creating buckets using the operator:
 - [Scaling, resource tuning, sizing, etc]()
 - [Troubleshooting]()
 - [Monitoring]()
-- [Running on minikube]()
-- [Running on kind]()
-- [Running on Openshift]()
+- [Running in minikube]()
+- [Running in kind]()
+- [Running in Openshift]()
+
+## Developers
+
+- [How to Contribute](/CONTRIBUTING.md)
+- [Developers Guide](https://github.com/noobaa/noobaa-core/wiki/Developers-Guide)
+- [Git Pull Request Guide](https://github.com/noobaa/noobaa-core/wiki/Git-Pull-Request-Guide)
+- [Running in Docker](https://github.com/noobaa/noobaa-core/wiki/Run-NooBaa-in-Docker)
+- [Using the RPC API](https://github.com/noobaa/noobaa-core/wiki/RPC)
+- [NooBaa Stack Diagram](noobaa-stack-diagram.png)
 
 ## Videos
 
@@ -55,15 +64,9 @@ Creating buckets using the operator:
 - [Slack - join the channel](https://www.noobaa.io/community)
 - [Github - post a discussion (new)](https://github.com/noobaa/noobaa-core/discussions)
 - [Email - post to google group (new)](https://groups.google.com/g/noobaa)
+- [Community meeting doc](https://docs.google.com/document/d/1VgiNOuLW92KcuJ0sGnXRVfT9oeImwbzbpEb4QkCEvDY/edit?usp=sharing)
 - [Public Calendar](https://calendar.google.com/calendar/u/1?cid=aGFvbmJiMWszb2dib2phbXIxa2YwdGpldWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) - use to follow the meetings schedule
-- [Meeting doc](https://docs.google.com/document/d/1VgiNOuLW92KcuJ0sGnXRVfT9oeImwbzbpEb4QkCEvDY/edit?usp=sharing)
 - [Youtube recordings](https://www.youtube.com/playlist?list=PLsawh7cxjeFDiUsuOGncF_KZImQCgj5U-) - watch the meetings you missed
-
-## Developers
-
-- [How to Contribute](/CONTRIBUTING.md)
-- [Developers Guide](https://github.com/noobaa/noobaa-core/wiki/Developers-Guide)
-- [Git Pull Request Guide](https://github.com/noobaa/noobaa-core/wiki/Git-Pull-Request-Guide)
 
 ## License
 
