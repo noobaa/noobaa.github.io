@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- [noobaa cli](noobaa-cli.md) - should be installed
+- [noobaa-operator cli](noobaa-operator-cli.md) - should be installed
 - Setup kubeconfig connecting you to a Kubernetes cluster or minikube.
 
 ## Install to Kubernetes
