@@ -27,7 +27,10 @@ brew install noobaa/noobaa/noobaa
 ## Check your installation
 
 - Help: `noobaa help`
-- kubeconfig: - same as kubectl - The CLI operates on the current context from kubeconfig which can be changed with `export KUBECONFIG=/path/to/custom/kubeconfig` or use the `--kubeconfig` and `--namespace` flags.
+- kubeconfig: 
+  - Same as kubectl - the CLI operates on the current context from kubeconfig
+  - Can be changed with `export KUBECONFIG=/path/to/custom/kubeconfig`
+  - or use the `--kubeconfig` and `--namespace` CLI flags
 - minikube: use `noobaa install --mini` in order to allocate less resources.
 - Uninstalling: `noobaa uninstall`
 
