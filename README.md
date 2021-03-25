@@ -1,5 +1,6 @@
 <div id="top" />
 <link rel="shortcut icon" type="image/x-icon" href="noobaa_icon.png">
+
 # NooBaa Docs
 
 NooBaa is a highly customizable and dynamic data gateway for objects, providing data services such as caching, tiering, mirroring, dedup, encryption, compression,  over any storage resource including S3, GCS, Azure Blob, Filesystems, etc. The goal is to simplify data flows for admins by connecting to any of the storage silos from private or public clouds, and providing a single scalable data services, using the same S3 API and management tools. NooBaa allows full control over data placement with dynamic policies per bucket or account.
