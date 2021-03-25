@@ -1,14 +1,11 @@
 <div id="top" />
 <link rel="shortcut icon" type="image/x-icon" href="noobaa_icon.png">
-<img src="noobaa_logo.png" width="200" style="float:right" />
-
 # NooBaa Docs
-
-**⚠️ WORK IN PROGRESS**
-Please refer to the current docs location in [noobaa-core wiki](https://github.com/noobaa/noobaa-core/wiki) and [noobaa-operator](https://github.com/noobaa/noobaa-operator/tree/master/doc) repos.
 
 NooBaa is a highly customizable and dynamic data gateway for objects, providing data services such as caching, tiering, mirroring, dedup, encryption, compression,  over any storage resource including S3, GCS, Azure Blob, Filesystems, etc. The goal is to simplify data flows for admins by connecting to any of the storage silos from private or public clouds, and providing a single scalable data services, using the same S3 API and management tools. NooBaa allows full control over data placement with dynamic policies per bucket or account.
 
+**⚠️ THE FOLLOWING IS WORK IN PROGRESS**
+Please refer to the current docs location in [noobaa-core wiki](https://github.com/noobaa/noobaa-core/wiki) and [noobaa-operator](https://github.com/noobaa/noobaa-operator/tree/master/doc) repos.
 
 ## Getting Started
 
@@ -21,13 +18,15 @@ NooBaa is a highly customizable and dynamic data gateway for objects, providing 
 - [noobaa install](noobaa-install.md) - Installing the operator and system on kubernetes
 - [noobaa status](noobaa-status.md) - Checking the operator and system status
 - [Using the s3 service](noobaa-s3-service.md)
-- Configuring BucketClasses using the operator
-  - [noobaa bucketclass](noobaa-bucket-class.md) - Actions to configure bucket classes which are policies applied to a class of buckets.
-  - [noobaa backingstore](noobaa-backing-store.md) - Actions to configure backing stores which are connections to cloud or pv storage used in bucket classes as a chunk-storage - aka "data-shredder".
-  - [noobaa namespacestore](noobaa-namespace-store.md) - Actions to configure namespace stores which are connections to cloud or pv storage used in bucket classes for transparent data access.
-- Creating buckets using the operator
-  - [noobaa obc](noobaa-obc.md) - Create buckets and connect applications with ObjectBucketClaims
-  - [noobaa cosi](noobaa-cosi.md) - Create buckets and connect applications with COSI (pre-alpha)
+
+- Configuring classes using the operator:
+  - [BucketClass](noobaa-bucket-class.md) - Configure policies to apply to a class of buckets.
+  - [BackingStore](noobaa-backing-store.md) - Configure cloud or pv storage used in classes as a chunk-storage - aka "data-shredder".
+  - [NamespaceStore](noobaa-namespace-store.md) - Configure cloud or pv storage used in classes for transparent data access.
+
+- Creating buckets using the operator:
+  - [OBC](noobaa-obc.md) - Create buckets and access with ObjectBucketClaims
+  - [COSI](noobaa-cosi.md) - Create buckets and access with Kubernetes-COSI (pre-alpha)
 
 ## Advanced Documentation
 
@@ -66,3 +65,7 @@ NooBaa is a highly customizable and dynamic data gateway for objects, providing 
 ## License
 
 Apache License 2.0, see [LICENSE](/LICENSE)
+
+---
+
+<img src="noobaa_logo.png" width="200" />
