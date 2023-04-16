@@ -1,3 +1,8 @@
+---
+title: Home
+layout: home
+---
+
 <div id="top" />
 <link rel="shortcut icon" type="image/x-icon" href="noobaa_icon.png">
 
