@@ -19,6 +19,7 @@ The goal is to simplify data flows for admins by connecting to any of the storag
 - [Getting started with noobaa-operator CLI](noobaa-operator-cli.md) 
 - [Getting started with noobaa-core standalone](noobaa-core-standalone.md)
 - [Getting started with noobaa-core nsfs gateway](noobaa-core-nsfs.md)
+- [Getting started with noobaa-core](noobaa-core/docs/non_containerized_NSFS.md)
 
 ## User Guide
 

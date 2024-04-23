@@ -1,0 +1,3 @@
+[submodule "noobaa-core"]
+	path = noobaa-core
+	url = https://github.com/noobaa/noobaa-core
